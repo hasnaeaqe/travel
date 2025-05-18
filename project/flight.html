@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ar-MA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز الطيران | أسفار المغرب</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/flights.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header Section -->
+        <header id="main-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="أسفار المغرب">
+                        <span>أسفار المغرب</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="hotels.html">الفنادق</a></li>
+                        <li><a href="flights.html" class="active">الطيران</a></li>
+                        <li><a href="trains.html">القطارات</a></li>
+                        <li><a href="destinations.html">الوجهات</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <div class="language-selector">
+                        <button class="current-lang">
+                            <img src="img/flags/ma.svg" alt="العربية">
+                            <span>العربية</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="language-dropdown">
+                            <li class="active"><a href="?lang=ar"><img src="img/flags/ma.svg" alt="العربية">العربية</a></li>
+                            <li><a href="?lang=fr"><img src="img/flags/fr.svg" alt="Français">Français</a></li>
+                            <li><a href="?lang=en"><img src="img/flags/gb.svg" alt="English">English</a></li>
+                        </ul>
+                    </div>
+                    <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
+                    <a href="signup.html" class="btn btn-primary">إنشاء حساب</a>
+                    <button class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="flights-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">حجز رحلات الطيران داخل وخارج المغرب</h1>
+                    <p class="hero-description">اكتشف أفضل العروض وأسعار التذاكر لجميع وجهاتك المفضلة</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flight Search Section -->
+        <section id="flights-search">
+            <div class="container">
+                <div class="search-container">
+                    <div class="search-tabs">
+                        <button class="tab-btn active" data-tab="round-trip">ذهاب وعودة</button>
+                        <button class="tab-btn" data-tab="one-way">ذهاب فقط</button>
+                        <button class="tab-btn" data-tab="multi-city">وجهات متعددة</button>
+                    </div>
+                    
+                    <div class="search-form active" id="round-trip-form">
+                        <form action="flights-results.html" method="get">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="departure-city">مدينة المغادرة</label>
+                                    <div class="input-icon-wrapper">
+                                        <input type="text" id="departure-city" name="departure-city" placeholder="الدار البيضاء..." required>
+                                        <i class="fas fa-plane-departure"></i>
+                                    </div>
+                                </div>
+                                <div class="swap-btn">
+                                    <button type="button" class="btn-swap">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <label for="arrival-city">مدينة الوصول</label>
+                                    <div class="input-icon-wrapper">
+                                        <input type="text" id="arrival-city" name="arrival-city" placeholder="مراكش..." required>
+                                        <i class="fas fa-plane-arrival"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="departure-date">تاريخ المغادرة</label>
+                                    <div class="input-icon-wrapper">
+                                        <input type="date" id="departure-date" name="departure-date" required>
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="return-date">تاريخ العودة</label>
+                                    <div class="input-icon-wrapper">
+                                        <input type="date" id="return-date" name="return-date" required>
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="passengers">عدد المسافرين</label>
+                                    <div class="input-icon-wrapper dropdown-wrapper">
+                                        <input type="text" id="passengers" name="passengers" placeholder="1 بالغ" readonly>
+                                        <i class="fas fa-user-friends"></i>
+                                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                                        
+                                        <div class="passengers-dropdown">
+                                            <div class="passenger-type">
+                                                <span class="passenger-label">البالغون (فوق 12 سنة)</span>
+                                                <div class="passenger-counter">
+                                                    <button type="button" class="counter-btn minus" data-type="adults">-</button>
+                                                    <input type="number" value="1" min="1" max="9" id="adults" name="adults" readonly>
+                                                    <button type="button" class="counter-btn plus" data-type="adults">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="passenger-type">
+                                                <span class="passenger-label">الأطفال (2-12 سنة)</span>
+                                                <div class="passenger-counter">
+                                                    <button type="button" class="counter-btn minus" data-type="children">-</button>
+                                                    <input type="number" value="0" min="0" max="8" id="children" name="children" readonly>
+                                                    <button type="button" class="counter-btn plus" data-type="children">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="passenger-type">
+                                                <span class="passenger-label">الرضع (أقل من سنتين)</span>
+                                                <div class="passenger-counter">
+                                                    <button type="button" class="counter-btn minus" data-type="infants">-</button>
+                                                    <input type="number" value="0" min="0" max="2" id="infants" name="infants" readonly>
+                                                    <button type="button" class="counter-btn plus" data-type="infants">+</button>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-sm apply-passengers">تطبيق</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="class">درجة السفر</label>
+                                    <div class="input-icon-wrapper">
+                                        <select id="class" name="class">
+                                            <option value="economy" selected>الدرجة الاقتصادية</option>
+                                            <option value="premium">الدرجة الاقتصادية المتميزة</option>
+                                            <option value="business">درجة رجال الأعمال</option>
+                                            <option value="first">الدرجة الأولى</option>
+                                        </select>
+                                        <i class="fas fa-couch"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-options">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="direct-flights" id="direct-flights">
+                                    <span class="checkbox-label">رحلات مباشرة فقط</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="flexible-dates" id="flexible-dates">
+                                    <span class="checkbox-label">تواريخ مرنة (±3 أيام)</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-search">بحث عن الرحلات <i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    
+                    <div class="search-form" id="one-way-form">
+                        <form action="flights-results.html" method="get">
+                            <input type="hidden" name="trip-type" value="one-way">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="departure-city-one">مدينة المغادرة</label>
+                                    <div class="input-icon-wrapper">
+                                        <input type="text" id="departure-city-one" name="departure-city" placeholder="الدار البيضاء..." required>
+                                        <i class="fas fa-plane-departure"></i>
+                                    </div>
+                                </div>
+                                <div class="swap-btn">
+                                    <button type="button" class="btn-swap">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <label for="arrival-city-one">مدينة الوصول</label>
+                                    <div class="input-icon-wrapper">
+                                        <input type="text" id="arrival-city-one" name="arrival-city" placeholder="مراكش..." required>
+                                        <i class="fas fa-plane-arrival"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group single-date">
+                                    <label for="departure-date-one">تاريخ المغادرة</label>
+                                    <div class="input-icon-wrapper">
+                                        <input type="date" id="departure-date-one" name="departure-date" required>
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="passengers-one">عدد المسافرين</label>
+                                    <div class="input-icon-wrapper dropdown-wrapper">
+                                        <input type="text" id="passengers-one" name="passengers" placeholder="1 بالغ" readonly>
+                                        <i class="fas fa-user-friends"></i>
+                                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                                        
+                                        <div class="passengers-dropdown">
+                                            <div class="passenger-type">
+                                                <span class="passenger-label">البالغون (فوق 12 سنة)</span>
+                                                <div class="passenger-counter">
+                                                    <button type="button" class="counter-btn minus" data-type="adults-one">-</button>
+                                                    <input type="number" value="1" min="1" max="9" id="adults-one" name="adults" readonly>
+                                                    <button type="button" class="counter-btn plus" data-type="adults-one">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="passenger-type">
+                                                <span class="passenger-label">الأطفال (2-12 سنة)</span>
+                                                <div class="passenger-counter">
+                                                    <button type="button" class="counter-btn minus" data-type="children-one">-</button>
+                                                    <input type="number" value="0" min="0" max="8" id="children-one" name="children" readonly>
+                                                    <button type="button" class="counter-btn plus" data-type="children-one">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="passenger-type">
+                                                <span class="passenger-label">الرضع (أقل من سنتين)</span>
+                                                <div class="passenger-counter">
+                                                    <button type="button" class="counter-btn minus" data-type="infants-one">-</button>
+                                                    <input type="number" value="0" min="0" max="2" id="infants-one" name="infants" readonly>
+                                                    <button type="button" class="counter-btn plus" data-type="infants-one">+</button>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-sm apply-passengers">تطبيق</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="class-one">درجة السفر</label>
+                                    <div class="input-icon-wrapper">
+                                        <select id="class-one" name="class">
+                                            <option value="economy" selected>الدرجة الاقتصادية</option>
+                                            <option value="premium">الدرجة الاقتصادية المتميزة</option>
+                                            <option value="business">درجة رجال الأعمال</option>
+                                            <option value="first">الدرجة الأولى</option>
+                                        </select>
+                                        <i class="fas fa-couch"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-options">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="direct-flights" id="direct-flights-one">
+                                    <span class="checkbox-label">رحلات مباشرة فقط</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="flexible-dates" id="flexible-dates-one">
+                                    <span class="checkbox-label">تواريخ مرنة (±3 أيام)</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-search">بحث عن الرحلات <i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    
+                    <div class="search-form" id="multi-city-form">
+                        <form action="flights-results.html" method="get">
+                            <input type="hidden" name="trip-type" value="multi-city">
+                            
+                            <div class="multi-city-flights">
+                                <div class="multi-city-flight" data-flight="1">
+                                    <div class="flight-header">
+                                        <h3>الرحلة 1</h3>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="departure-city-1">مدينة المغادرة</label>
+                                            <div class="input-icon-wrapper">
+                                                <input type="text" id="departure-city-1" name="departure-city-1" placeholder="الدار البيضاء..." required>
+                                                <i class="fas fa-plane-departure"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="arrival-city-1">مدينة الوصول</label>
+                                            <div class="input-icon-wrapper">
+                                                <input type="text" id="arrival-city-1" name="arrival-city-1" placeholder="مراكش..." required>
+                                                <i class="fas fa-plane-arrival"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group single-date">
+                                            <label for="departure-date-1">تاريخ المغادرة</label>
+                                            <div class="input-icon-wrapper">
+                                                <input type="date" id="departure-date-1" name="departure-date-1" required>
+                                                <i class="fas fa-calendar-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="multi-city-flight" data-flight="2">
+                                    <div class="flight-header">
+                                        <h3>الرحلة 2</h3>
+                                        <button type="button" class="remove-flight" data-flight="2" disabled>
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="departure-city-2">مدينة المغادرة</label>
+                                            <div class="input-icon-wrapper">
+                                                <input type="text" id="departure-city-2" name="departure-city-2" placeholder="مراكش..." required>
+                                                <i class="fas fa-plane-departure"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="arrival-city-2">مدينة الوصول</label>
+                                            <div class="input-icon-wrapper">
+                                                <input type="text" id="arrival-city-2" name="arrival-city-2" placeholder="فاس..." required>
+                                                <i class="fas fa-plane-arrival"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group single-date">
+                                            <label for="departure-date-2">تاريخ المغادرة</label>
+                                            <div class="input-icon-wrapper">
+                                                <input type="date" id="departure-date-2" name="departure-date-2" required>
+                                                <i class="fas fa-calendar-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="add-flight-container">
+                                <button type="button" class="btn btn-sm btn-add-flight" id="add-flight">
+                                    <i class="fas fa-plus-circle"></i> إضافة رحلة أخرى
+                                </button>
+                                <small class="flight-limit-note">يمكن إضافة حتى 6 رحلات</small>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="passengers-multi">عدد المسافرين</label>
+                                    <div class="input-icon-wrapper dropdown-wrapper">
+                                        <input type="text" id="passengers-multi" name="passengers" placeholder="1 بالغ" readonly>
+                                        <i class="fas fa-user-friends"></i>
+                                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                                        
+                                        <div class="passengers-dropdown">
+                                            <div class="passenger-type">
+                                                <span class="passenger-label">البالغون (فوق 12 سنة)</span>
+                                                <div class="passenger-counter">
+                                                    <button type="button" class="counter-btn minus" data-type="adults-multi">-</button>
+                                                    <input type="number" value="1" min="1" max="9" id="adults-multi" name="adults" readonly>
+                                                    <button type="button" class="counter-btn plus" data-type="adults-multi">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="passenger-type">
+                                                <span class="passenger-label">الأطفال (2-12 سنة)</span>
+                                                <div class="passenger-counter">
+                                                    <button type="button" class="counter-btn minus" data-type="children-multi">-</button>
+                                                    <input type="number" value="0" min="0" max="8" id="children-multi" name="children" readonly>
+                                                    <button type="button" class="counter-btn plus" data-type="children-multi">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="passenger-type">
+                                                <span class="passenger-label">الرضع (أقل من سنتين)</span>
+                                                <div class="passenger-counter">
+                                                    <button type="button" class="counter-btn minus" data-type="infants-multi">-</button>
+                                                    <input type="number" value="0" min="0" max="2" id="infants-multi" name="infants" readonly>
+                                                    <button type="button" class="counter-btn plus" data-type="infants-multi">+</button>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-sm apply-passengers">تطبيق</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="class-multi">درجة السفر</label>
+                                    <div class="input-icon-wrapper">
+                                        <select id="class-multi" name="class">
+                                            <option value="economy" selected>الدرجة الاقتصادية</option>
+                                            <option value="premium">الدرجة الاقتصادية المتميزة</option>
+                                            <option value="business">درجة رجال الأعمال</option>
+                                            <option value="first">الدرجة الأولى</option>
+                                        </select>
+                                        <i class="fas fa-couch"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-options">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="direct-flights" id="direct-flights-multi">
+                                    <span class="checkbox-label">رحلات مباشرة فقط</span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-search">بحث عن الرحلات <i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Routes -->
+        <section id="popular-routes">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">المسارات الأكثر شعبية</h2>
+                    <p class="section-description">اكتشف أفضل المسارات الداخلية والدولية</p>
+                </div>
+                
+                <div class="tabs-container">
+                    <div class="tabs">
+                        <button class="tab-button active" data-tab="domestic">رحلات داخلية</button>
+                        <button class="tab-button" data-tab="international">رحلات دولية</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="domestic">
+                        <div class="routes-grid">
+                            <div class="route-card">
+                                <div class="route-content">
+                                    <div class="route-cities">
+                                        <div class="departure">
+                                            <div class="city-code">CMN</div>
+                                            <div class="city-name">الدار البيضاء</div>
+                                        </div>
+                                        <div class="route-arrow">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="arrival">
+                                            <div class="city-code">RAK</div>
+                                            <div class="city-name">مراكش</div>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="flight-duration"><i class="far fa-clock"></i> 45 دقيقة</div>
+                                        <div class="flight-price">ابتداءً من <strong>600 درهم</strong></div>
+                                    </div>
+                                </div>
+                                <a href="flights-results.html?departure=CMN&arrival=RAK" class="route-link"></a>
+                            </div>
+                            
+                            <div class="route-card">
+                                <div class="route-content">
+                                    <div class="route-cities">
+                                        <div class="departure">
+                                            <div class="city-code">CMN</div>
+                                            <div class="city-name">الدار البيضاء</div>
+                                        </div>
+                                        <div class="route-arrow">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="arrival">
+                                            <div class="city-code">TNG</div>
+                                            <div class="city-name">طنجة</div>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="flight-duration"><i class="far fa-clock"></i> 1 ساعة 10 دقائق</div>
+                                        <div class="flight-price">ابتداءً من <strong>750 درهم</strong></div>
+                                    </div>
+                                </div>
+                                <a href="flights-results.html?departure=CMN&arrival=TNG" class="route-link"></a>
+                            </div>
+                            
+                            <div class="route-card">
+                                <div class="route-content">
+                                    <div class="route-cities">
+                                        <div class="departure">
+                                            <div class="city-code">CMN</div>
+                                            <div class="city-name">الدار البيضاء</div>
+                                        </div>
+                                        <div class="route-arrow">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="arrival">
+                                            <div class="city-code">FEZ</div>
+                                            <div class="city-name">فاس</div>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="flight-duration"><i class="far fa-clock"></i> 1 ساعة</div>
+                                        <div class="flight-price">ابتداءً من <strong>680 درهم</strong></div>
+                                    </div>
+                                </div>
+                                <a href="flights-results.html?departure=CMN&arrival=FEZ" class="route-link"></a>
+                            </div>
+                            
+                            <div class="route-card">
+                                <div class="route-content">
+                                    <div class="route-cities">
+                                        <div class="departure">
+                                            <div class="city-code">CMN</div>
+                                            <div class="city-name">الدار البيضاء</div>
+                                        </div>
+                                        <div class="route-arrow">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="arrival">
+                                            <div class="city-code">AGA</div>
+                                            <div class="city-name">أغادير</div>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="flight-duration"><i class="far fa-clock"></i> 1 ساعة 20 دقيقة</div>
+                                        <div class="flight-price">ابتداءً من <strong>720 درهم</strong></div>
+                                    </div>
+                                </div>
+                                <a href="flights-results.html?departure=CMN&arrival=AGA" class="route-link"></a>
+                            </div>
+                            
+                            <div class="route-card">
+                                <div class="route-content">
+                                    <div class="route-cities">
+                                        <div class="departure">
+                                            <div class="city-code">RAK</div>
+                                            <div class="city-name">مراكش</div>
+                                        </div>
+                                        <div class="route-arrow">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="arrival">
+                                            <div class="city-code">TNG</div>
+                                            <div class="city-name">طنجة</div>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="flight-duration"><i class="far fa-clock"></i> 1 ساعة 30 دقيقة</div>
+                                        <div class="flight-price">ابتداءً من <strong>800 درهم</strong></div>
+                                    </div>
+                                </div>
+                                <a href="flights-results.html?departure=RAK&arrival=TNG" class="route-link"></a>
+                            </div>
+                            
+                            <div class="route-card">
+                                <div class="route-content">
+                                    <div class="route-cities">
+                                        <div class="departure">
+                                            <div class="city-code">RAK</div>
+                                            <div class="city-name">مراكش</div>
+                                        </div>
+                                        <div class="route-arrow">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="arrival">
+                                            <div class="city-code">FEZ</div>
+                                            <div class="city-name">فاس</div>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="flight-duration"><i class="far fa-clock"></i> 1 ساعة 15 دقيقة</div>
+                                        <div class="flight-price">ابتداءً من <strong>750 درهم</strong></div>
+                                    </div>
+                                </div>
+                                <a href="flights-results.html?departure=RAK&arrival=FEZ" class="route-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="international">
+                        <div class="routes-grid">
+                            <div class="route-card">
+                                <div class="route-content">
+                                    <div class="route-cities">
+                                        <div class="departure">
+                                            <div class="city-code">CMN</div>
+                                            <div class="city-name">الدار البيضاء</div>
+                                        </div>
+                                        <div class="route-arrow">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="arrival">
+                                            <div class="city-code">CDG</div>
+                                            <div class="city-name">باريس</div>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="flight-duration"><i class="far fa-clock"></i> 3 ساعات 15 دقيقة</div>
+                                        <div class="flight-price">ابتداءً من <strong>2500 درهم</strong></div>
+                                    </div>
+                                </div>
+                                <a href="flights-results.html?departure=CMN&arrival=CDG" class="route-link"></a>
+                            </div>
+                            
+                            <div class="route-card">
+                                <div class="route-content">
+                                    <div class="route-cities">
+                                        <div class="departure">
+                                            <div class="city-code">CMN</div>
+                                            <div class="city-name">الدار البيضاء</div>
+                                        </div>
+                                        <div class="route-arrow">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="arrival">
+                                            <div class="city-code">LHR</div>
+                                            <div class="city-name">لندن</div>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="flight-duration"><i class="far fa-clock"></i> 3 ساعات 45 دقيقة</div>
+                                        <div class="flight-price">ابتداءً من <strong>2800 درهم</strong></div>
+                                    </div>
+                                </div>
+                                <a href="flights-results.html?departure=CMN&arrival=LHR" class="route-link"></a>
+                            </div>
+                            
+                            <div class="route-card">
+                                <div class="route-content">
+                                    <div class="route-cities">
+                                        <div class="departure">
+                                            <div class="city-code">CMN</div>
+                                            <div class="city-name">الدار البيضاء</div>
+                                        </div>
+                                        <div class="route-arrow">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="arrival">
+                                            <div class="city-code">MAD</div>
+                                            <div class="city-name">مدريد</div>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="flight-duration"><i class="far fa-clock"></i> 1 ساعة 50 دقيقة</div>
+                                        <div class="flight-price">ابتداءً من <strong>1800 درهم</strong></div>
+                                    </div>
+                                </div>
+                                <a href="flights-results.html?departure=CMN&arrival=MAD" class="route-link"></a>
+                            </div>
+                            
+                            <div class="route-card">
+                                <div class="route-content">
+                                    <div class="route-cities">
+                                        <div class="departure">
+                                            <div class="city-code">CMN</div>
+                                            <div class="city-name">الدار البيضاء</div>
+                                        </div>
+                                        <div class="route-arrow">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="arrival">
+                                            <div class="city-code">FCO</div>
+                                            <div class="city-name">روما</div>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="flight-duration"><i class="far fa-clock"></i> 3 ساعات</div>
+                                        <div class="flight-price">ابتداءً من <strong>2200 درهم</strong></div>
+                                    </div>
+                                </div>
+                                <a href="flights-results.html?departure=CMN&arrival=FCO" class="route-link"></a>
+                            </div>
+                            
+                            <div class="route-card">
+                                <div class="route-content">
+                                    <div class="route-cities">
+                                        <div class="departure">
+                                            <div class="city-code">CMN</div>
+                                            <div class="city-name">الدار البيضاء</div>
+                                        </div>
+                                        <div class="route-arrow">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="arrival">
+                                            <div class="city-code">CAI</div>
+                                            <div class="city-name">القاهرة</div>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="flight-duration"><i class="far fa-clock"></i> 5 ساعات 10 دقائق</div>
+                                        <div class="flight-price">ابتداءً من <strong>3000 درهم</strong></div>
+                                    </div>
+                                </div>
+                                <a href="flights-results.html?departure=CMN&arrival=CAI" class="route-link"></a>
+                            </div>
+                            
+                            <div class="route-card">
+                                <div class="route-content">
+                                    <div class="route-cities">
+                                        <div class="departure">
+                                            <div class="city-code">CMN</div>
+                                            <div class="city-name">الدار البيضاء</div>
+                                        </div>
+                                        <div class="route-arrow">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="arrival">
+                                            <div class="city-code">DXB</div>
+                                            <div class="city-name">دبي</div>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="flight-duration"><i class="far fa-clock"></i> 7 ساعات 30 دقيقة</div>
+                                        <div class="flight-price">ابتداءً من <strong>4000 درهم</strong></div>
+                                    </div>
+                                </div>
+                                <a href="flights-results.html?departure=CMN&arrival=DXB" class="route-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Airlines Section -->
+        <section id="airlines">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">شركات الطيران</h2>
+                    <p class="section-description">نعمل مع أفضل شركات الطيران لتقديم خدمة متميزة</p>
+                </div>
+                
+                <div class="airlines-grid">
+                    <div class="airline-card">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1" alt="الخطوط الملكية المغربية">
+                        <h3>الخطوط الملكية المغربية</h3>
+                        <a href="airlines/royal-air-maroc.html" class="btn btn-sm">عرض الرحلات</a>
+                    </div>
+                    
+                    <div class="airline-card">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1" alt="العربية للطيران المغرب">
+                        <h3>العربية للطيران المغرب</h3>
+                        <a href="airlines/air-arabia-maroc.html" class="btn btn-sm">عرض الرحلات</a>
+                    </div>
+                    
+                    <div class="airline-card">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1" alt="الخطوط الفرنسية">
+                        <h3>الخطوط الفرنسية</h3>
+                        <a href="airlines/air-france.html" class="btn btn-sm">عرض الرحلات</a>
+                    </div>
+                    
+                    <div class="airline-card">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1" alt="لوفتهانزا">
+                        <h3>لوفتهانزا</h3>
+                        <a href="airlines/lufthansa.html" class="btn btn-sm">عرض الرحلات</a>
+                    </div>
+                    
+                    <div class="airline-card">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1" alt="الخطوط الإماراتية">
+                        <h3>الخطوط الإماراتية</h3>
+                        <a href="airlines/emirates.html" class="btn btn-sm">عرض الرحلات</a>
+                    </div>
+                    
+                    <div class="airline-card">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1" alt="الخطوط القطرية">
+                        <h3>الخطوط القطرية</h3>
+                        <a href="airlines/qatar-airways.html" class="btn btn-sm">عرض الرحلات</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Tips -->
+        <section id="travel-tips">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">نصائح السفر</h2>
+                    <p class="section-description">إليك بعض النصائح لتحظى برحلة مريحة وممتعة</p>
+                </div>
+                
+                <div class="tips-container">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <h3 class="tip-title">الوصول المبكر للمطار</h3>
+                        <p class="tip-description">الوصول قبل 3 ساعات من موعد الرحلات الدولية و ساعتين للرحلات الداخلية يجنبك التأخير وضغط الوقت.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-suitcase"></i>
+                        </div>
+                        <h3 class="tip-title">الأمتعة المسموح بها</h3>
+                        <p class="tip-description">تأكد من الوزن المسموح به للأمتعة حسب شركة الطيران وصنف الدرجة لتجنب رسوم إضافية.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-passport"></i>
+                        </div>
+                        <h3 class="tip-title">تجهيز المستندات</h3>
+                        <p class="tip-description">تأكد من صلاحية جواز السفر (6 أشهر على الأقل) وجهز التأشيرات المطلوبة قبل موعد السفر بفترة كافية.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3 class="tip-title">الحجز المبكر</h3>
+                        <p class="tip-description">احجز رحلتك قبل موعد السفر بشهرين على الأقل للحصول على أفضل الأسعار والمقاعد المفضلة.</p>
+                    </div>
+                </div>
+                
+                <div class="more-tips">
+                    <a href="travel-tips.html" class="btn btn-outline">المزيد من نصائح السفر</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="main-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="أسفار المغرب">
+                        <span>أسفار المغرب</span>
+                    </div>
+                    <p class="footer-description">نوفر لك أفضل خدمات الحجز للفنادق والطيران والقطارات في المغرب</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3 class="footer-title">روابط سريعة</h3>
+                        <ul>
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="hotels.html">الفنادق</a></li>
+                            <li><a href="flights.html">الطيران</a></li>
+                            <li><a href="trains.html">القطارات</a></li>
+                            <li><a href="destinations.html">الوجهات</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="footer-title">المعلومات</h3>
+                        <ul>
+                            <li><a href="about.html">من نحن</a></li>
+                            <li><a href="contact.html">اتصل بنا</a></li>
+                            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                            <li><a href="terms.html">الشروط والأحكام</a></li>
+                            <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="footer-title">اتصل بنا</h3>
+                        <ul class="contact-info">
+                            <li><i class="fas fa-map-marker-alt"></i> شارع محمد الخامس، الرباط، المغرب</li>
+                            <li><i class="fas fa-phone"></i> +212 5XX-XXXXXX</li>
+                            <li><i class="fas fa-envelope"></i> info@morocco-travels.ma</li>
+                        </ul>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="footer-title">النشرة الإخبارية</h3>
+                        <p>اشترك في نشرتنا الإخبارية للحصول على أحدث العروض والخصومات</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="البريد الإلكتروني" required>
+                            <button type="submit" class="btn btn-sm">اشتراك</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p class="copyright">© 2025 أسفار المغرب. جميع الحقوق محفوظة.</p>
+                    <div class="payment-methods">
+                        <span>طرق الدفع:</span>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/flights.js"></script>
+</body>
+</html>

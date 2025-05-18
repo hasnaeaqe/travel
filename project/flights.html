@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ar-MA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الطيران - أسفار المغرب</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <header id="main-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="أسفار المغرب">
+                        <span>أسفار المغرب</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="hotels.html">الفنادق</a></li>
+                        <li><a href="flights.html" class="active">الطيران</a></li>
+                        <li><a href="trains.html">القطارات</a></li>
+                        <li><a href="destinations.html">الوجهات</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
+                    <a href="signup.html" class="btn btn-primary">إنشاء حساب</a>
+                    <button class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">ابحث عن رحلتك الجوية</h1>
+                    <p class="hero-description">قارن بين أفضل شركات الطيران واحجز تذكرتك بسهولة وأمان</p>
+
+                    <!-- Search Form -->
+                    <div class="search-container">
+                        <form action="#" method="get" class="flight-search-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="departure">مدينة المغادرة</label>
+                                    <input type="text" id="departure" name="departure" placeholder="الدار البيضاء...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="arrival">مدينة الوصول</label>
+                                    <input type="text" id="arrival" name="arrival" placeholder="مراكش...">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="departure-date">تاريخ المغادرة</label>
+                                    <input type="date" id="departure-date" name="departure-date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="return-date">تاريخ العودة</label>
+                                    <input type="date" id="return-date" name="return-date">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="passengers">عدد المسافرين</label>
+                                    <select id="passengers" name="passengers">
+                                        <option value="1">1 مسافر</option>
+                                        <option value="2" selected>2 مسافر</option>
+                                        <option value="3">3 مسافرين</option>
+                                        <option value="4">4+ مسافرين</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="class">الدرجة</label>
+                                    <select id="class" name="class">
+                                        <option value="economy" selected>اقتصادية</option>
+                                        <option value="business">رجال الأعمال</option>
+                                        <option value="first">الدرجة الأولى</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-search">بحث <i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flight Results -->
+        <section id="flight-results">
+            <div class="container">
+                <div class="filters-and-results">
+                    <!-- Sidebar Filters -->
+                    <aside class="filters-sidebar">
+                        <h3>الفلاتر</h3>
+                        <div class="filter-section">
+                            <h4>الشركة الجوية</h4>
+                            <ul class="airline-filter">
+                                <li>
+                                    <input type="checkbox" id="airline-ram">
+                                    <label for="airline-ram">الخطوط الملكية المغربية</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="airline-airfrance">
+                                    <label for="airline-airfrance">إير فرانس</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="airline-lufthansa">
+                                    <label for="airline-lufthansa">لوفتهانزا</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="filter-section">
+                            <h4>نطاق السعر</h4>
+                            <div class="price-range">
+                                <input type="range" min="0" max="10000" step="500" value="5000">
+                                <p>الحد الأقصى: <span id="price-value">5000</span> درهم</p>
+                            </div>
+                        </div>
+                        <div class="filter-section">
+                            <h4>وقت الرحلة</h4>
+                            <ul class="time-filter">
+                                <li>
+                                    <input type="checkbox" id="early-morning">
+                                    <label for="early-morning">صباح الباكر (٠٥:٠٠ - ٠٨:٠٠)</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="morning">
+                                    <label for="morning">صباحًا (٠٨:٠٠ - ١٢:٠٠)</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="afternoon">
+                                    <label for="afternoon">بعد الظهر (١٢:٠٠ - ١٨:٠٠)</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="evening">
+                                    <label for="evening">مساءً (١٨:٠٠ - ٢٢:٠٠)</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <!-- Flights Grid -->
+                    <div class="flights-grid">
+                        <div class="flight-card">
+                            <div class="flight-header">
+                                <div class="flight-airline">
+                                    <img src="https://via.placeholder.com/50x20.png?text=RAM " alt="الخطوط الملكية المغربية">
+                                    <span>الخطوط الملكية المغربية</span>
+                                </div>
+                                <div class="flight-price">3200 درهم</div>
+                            </div>
+                            <div class="flight-details">
+                                <div class="flight-route">
+                                    <div class="departure">
+                                        <strong>الدار البيضاء (CMN)</strong><br>
+                                        08:30 صباحًا
+                                    </div>
+                                    <div class="arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+                                    <div class="arrival">
+                                        <strong>باريس (CDG)</strong><br>
+                                        12:00 ظهرًا
+                                    </div>
+                                </div>
+                                <div class="flight-duration">
+                                    <i class="fas fa-clock"></i> مدة الرحلة: 3 ساعات 30 دقيقة
+                                </div>
+                                <div class="flight-class">
+                                    <i class="fas fa-chair"></i> درجة اقتصادية
+                                </div>
+                            </div>
+                            <div class="flight-footer">
+                                <a href="flights/booking.html" class="btn btn-sm">اختيار هذا الطيران</a>
+                            </div>
+                        </div>
+
+                        <div class="flight-card">
+                            <div class="flight-header">
+                                <div class="flight-airline">
+                                    <img src="https://via.placeholder.com/50x20.png?text=AF " alt="إير فرانس">
+                                    <span>إير فرانس</span>
+                                </div>
+                                <div class="flight-price">4100 درهم</div>
+                            </div>
+                            <div class="flight-details">
+                                <div class="flight-route">
+                                    <div class="departure">
+                                        <strong>مراكش (RAK)</strong><br>
+                                        10:15 صباحًا
+                                    </div>
+                                    <div class="arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+                                    <div class="arrival">
+                                        <strong>ليون (LYS)</strong><br>
+                                        13:25 ظهرًا
+                                    </div>
+                                </div>
+                                <div class="flight-duration">
+                                    <i class="fas fa-clock"></i> مدة الرحلة: 3 ساعات 10 دقيقة
+                                </div>
+                                <div class="flight-class">
+                                    <i class="fas fa-chair"></i> درجة رجال الأعمال
+                                </div>
+                            </div>
+                            <div class="flight-footer">
+                                <a href="flights/booking.html" class="btn btn-sm">اختيار هذا الطيران</a>
+                            </div>
+                        </div>
+
+                        <div class="flight-card">
+                            <div class="flight-header">
+                                <div class="flight-airline">
+                                    <img src="https://via.placeholder.com/50x20.png?text=LH " alt="لوفتهانزا">
+                                    <span>لوفتهانزا</span>
+                                </div>
+                                <div class="flight-price">5200 درهم</div>
+                            </div>
+                            <div class="flight-details">
+                                <div class="flight-route">
+                                    <div class="departure">
+                                        <strong>طنجة (TNG)</strong><br>
+                                        02:45 مساءً
+                                    </div>
+                                    <div class="arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+                                    <div class="arrival">
+                                        <strong>فرانكفورت (FRA)</strong><br>
+                                        05:55 مساءً
+                                    </div>
+                                </div>
+                                <div class="flight-duration">
+                                    <i class="fas fa-clock"></i> مدة الرحلة: 3 ساعات 10 دقيقة
+                                </div>
+                                <div class="flight-class">
+                                    <i class="fas fa-chair"></i> درجة اقتصادية
+                                </div>
+                            </div>
+                            <div class="flight-footer">
+                                <a href="flights/booking.html" class="btn btn-sm">اختيار هذا الطيران</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="more-flights">
+                    <button class="btn btn-outline">عرض المزيد من الرحلات</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="main-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="أسفار المغرب">
+                        <span>أسفار المغرب</span>
+                    </div>
+                    <p class="footer-description">نوفر لك أفضل خدمات الحجز للفنادق والطيران والقطارات في المغرب</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3 class="footer-title">روابط سريعة</h3>
+                        <ul>
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="hotels.html">الفنادق</a></li>
+                            <li><a href="flights.html">الطيران</a></li>
+                            <li><a href="trains.html">القطارات</a></li>
+                            <li><a href="destinations.html">الوجهات</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 class="footer-title">المعلومات</h3>
+                        <ul>
+                            <li><a href="about.html">من نحن</a></li>
+                            <li><a href="contact.html">اتصل بنا</a></li>
+                            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                            <li><a href="terms.html">الشروط والأحكام</a></li>
+                            <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 class="footer-title">اتصل بنا</h3>
+                        <ul class="contact-info">
+                            <li><i class="fas fa-map-marker-alt"></i> شارع محمد الخامس، الرباط، المغرب</li>
+                            <li><i class="fas fa-phone"></i> +212 5XX-XXXXXX</li>
+                            <li><i class="fas fa-envelope"></i> info@morocco-travels.ma</li>
+                        </ul>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3 class="footer-title">النشرة الإخبارية</h3>
+                        <p>اشترك في نشرتنا الإخبارية للحصول على أحدث العروض والخصومات</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="البريد الإلكتروني" required>
+                            <button type="submit" class="btn btn-sm">اشتراك</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="copyright">© 2025 أسفار المغرب. جميع الحقوق محفوظة.</p>
+                    <div class="payment-methods">
+                        <span>طرق الدفع:</span>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

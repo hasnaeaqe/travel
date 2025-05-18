@@ -1,0 +1,20 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "hotels": "Hôtels",
+    "flights": "Vols",
+    "trains": "Trains",
+    "destinations": "Destinations"
+  },
+  "auth": {
+    "login": "Connexion",
+    "signup": "Inscription"
+  },
+  "footer": {
+    "quickLinks": "Liens rapides",
+    "about": "À propos",
+    "contact": "Contact",
+    "terms": "Conditions",
+    "privacy": "Confidentialité"
+  }
+}

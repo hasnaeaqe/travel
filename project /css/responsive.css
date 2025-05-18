@@ -1,0 +1,176 @@
+/* Responsive Styles */
+
+/* Large Screens (Desktops) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .search-container {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Medium Screens (Tablets) */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .destinations-grid,
+    .hotels-slider,
+    .testimonials-slider {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small Screens (Mobile) */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    #main-header .container {
+        flex-wrap: wrap;
+    }
+    
+    .logo {
+        order: 1;
+    }
+    
+    .user-actions {
+        order: 2;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .main-nav {
+        flex-basis: 100%;
+        order: 3;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--transition-normal);
+    }
+    
+    .main-nav.active {
+        max-height: 300px;
+        margin-top: var(--spacing-md);
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .main-nav a {
+        display: block;
+        padding: var(--spacing-sm);
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .search-tabs li {
+        padding: var(--spacing-sm);
+        font-size: 0.875rem;
+    }
+    
+    .search-form {
+        padding: var(--spacing-md);
+    }
+    
+    .destinations-grid,
+    .hotels-slider,
+    .testimonials-slider,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-title {
+        font-size: 1.75rem;
+    }
+    
+    .cta-description {
+        font-size: 1rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+    section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .user-actions .btn-outline {
+        display: none;
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .search-tabs {
+        flex-direction: column;
+    }
+    
+    .search-tabs li {
+        border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .search-tabs li:last-child {
+        border-bottom: none;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ar-MA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفنادق | أسفار المغرب</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/hotels.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header Section -->
+        <header id="main-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="أسفار المغرب">
+                        <span>أسفار المغرب</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="hotels.html" class="active">الفنادق</a></li>
+                        <li><a href="flights.html">الطيران</a></li>
+                        <li><a href="trains.html">القطارات</a></li>
+                        <li><a href="destinations.html">الوجهات</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <div class="language-selector">
+                        <button class="current-lang">
+                            <img src="img/flags/ma.svg" alt="العربية">
+                            <span>العربية</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="language-dropdown">
+                            <li class="active"><a href="?lang=ar"><img src="img/flags/ma.svg" alt="العربية">العربية</a></li>
+                            <li><a href="?lang=fr"><img src="img/flags/fr.svg" alt="Français">Français</a></li>
+                            <li><a href="?lang=en"><img src="img/flags/gb.svg" alt="English">English</a></li>
+                        </ul>
+                    </div>
+                    <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
+                    <a href="signup.html" class="btn btn-primary">إنشاء حساب</a>
+                    <button class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="hotels-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">احجز أفضل الفنادق في المغرب</h1>
+                    <p class="hero-description">اختر من بين مجموعة واسعة من الفنادق الفاخرة والمتوسطة والاقتصادية</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section id="hotels-search">
+            <div class="container">
+                <div class="search-container">
+                    <form class="search-form" action="hotels.html" method="get">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="destination">الوجهة</label>
+                                <div class="input-icon-wrapper">
+                                    <input type="text" id="destination" name="destination" placeholder="مراكش، الدار البيضاء، طنجة...">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="check-in">تاريخ الوصول</label>
+                                <div class="input-icon-wrapper">
+                                    <input type="date" id="check-in" name="check-in">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="check-out">تاريخ المغادرة</label>
+                                <div class="input-icon-wrapper">
+                                    <input type="date" id="check-out" name="check-out">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="guests">عدد الضيوف</label>
+                                <div class="input-icon-wrapper">
+                                    <select id="guests" name="guests">
+                                        <option value="1">1 شخص</option>
+                                        <option value="2" selected>2 أشخاص</option>
+                                        <option value="3">3 أشخاص</option>
+                                        <option value="4">4 أشخاص</option>
+                                        <option value="5">5+ أشخاص</option>
+                                    </select>
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="rooms">عدد الغرف</label>
+                                <div class="input-icon-wrapper">
+                                    <select id="rooms" name="rooms">
+                                        <option value="1" selected>1 غرفة</option>
+                                        <option value="2">2 غرف</option>
+                                        <option value="3">3 غرف</option>
+                                        <option value="4">4+ غرف</option>
+                                    </select>
+                                    <i class="fas fa-door-open"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-search">بحث <i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section id="hotels-filters">
+            <div class="container">
+                <div class="filters-container">
+                    <div class="filters-header">
+                        <h3>فلترة النتائج</h3>
+                        <button class="btn-clear-filters">مسح الفلاتر</button>
+                    </div>
+                    <div class="filters-body">
+                        <div class="filter-group">
+                            <h4 class="filter-title">السعر في الليلة</h4>
+                            <div class="price-range-slider">
+                                <div class="price-inputs">
+                                    <input type="number" class="min-price" value="100" min="0" max="10000">
+                                    <span>-</span>
+                                    <input type="number" class="max-price" value="5000" min="0" max="10000">
+                                    <span>درهم</span>
+                                </div>
+                                <div class="slider-container">
+                                    <input type="range" class="price-slider" min="0" max="10000" value="100" id="min-price-slider">
+                                    <input type="range" class="price-slider" min="0" max="10000" value="5000" id="max-price-slider">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h4 class="filter-title">التصنيف</h4>
+                            <div class="star-filters">
+                                <label class="star-filter">
+                                    <input type="checkbox" name="stars" value="5">
+                                    <span class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </label>
+                                <label class="star-filter">
+                                    <input type="checkbox" name="stars" value="4">
+                                    <span class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </label>
+                                <label class="star-filter">
+                                    <input type="checkbox" name="stars" value="3">
+                                    <span class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </label>
+                                <label class="star-filter">
+                                    <input type="checkbox" name="stars" value="2">
+                                    <span class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </label>
+                                <label class="star-filter">
+                                    <input type="checkbox" name="stars" value="1">
+                                    <span class="stars">
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h4 class="filter-title">المرافق</h4>
+                            <div class="amenities-filters">
+                                <label class="amenity-filter">
+                                    <input type="checkbox" name="amenities" value="wifi">
+                                    <span><i class="fas fa-wifi"></i> واي فاي مجاني</span>
+                                </label>
+                                <label class="amenity-filter">
+                                    <input type="checkbox" name="amenities" value="pool">
+                                    <span><i class="fas fa-swimming-pool"></i> مسبح</span>
+                                </label>
+                                <label class="amenity-filter">
+                                    <input type="checkbox" name="amenities" value="parking">
+                                    <span><i class="fas fa-parking"></i> موقف سيارات</span>
+                                </label>
+                                <label class="amenity-filter">
+                                    <input type="checkbox" name="amenities" value="restaurant">
+                                    <span><i class="fas fa-utensils"></i> مطعم</span>
+                                </label>
+                                <label class="amenity-filter">
+                                    <input type="checkbox" name="amenities" value="spa">
+                                    <span><i class="fas fa-spa"></i> سبا</span>
+                                </label>
+                                <label class="amenity-filter">
+                                    <input type="checkbox" name="amenities" value="air-conditioning">
+                                    <span><i class="fas fa-wind"></i> تكييف</span>
+                                </label>
+                                <label class="amenity-filter">
+                                    <input type="checkbox" name="amenities" value="gym">
+                                    <span><i class="fas fa-dumbbell"></i> صالة رياضية</span>
+                                </label>
+                                <label class="amenity-filter">
+                                    <input type="checkbox" name="amenities" value="breakfast">
+                                    <span><i class="fas fa-coffee"></i> إفطار مجاني</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h4 class="filter-title">نوع الإقامة</h4>
+                            <div class="property-type-filters">
+                                <label class="property-filter">
+                                    <input type="checkbox" name="property-type" value="hotel">
+                                    <span>فندق</span>
+                                </label>
+                                <label class="property-filter">
+                                    <input type="checkbox" name="property-type" value="riad">
+                                    <span>رياض</span>
+                                </label>
+                                <label class="property-filter">
+                                    <input type="checkbox" name="property-type" value="apartment">
+                                    <span>شقة</span>
+                                </label>
+                                <label class="property-filter">
+                                    <input type="checkbox" name="property-type" value="resort">
+                                    <span>منتجع</span>
+                                </label>
+                                <label class="property-filter">
+                                    <input type="checkbox" name="property-type" value="guesthouse">
+                                    <span>بيت ضيافة</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filters-footer">
+                        <button class="btn btn-primary btn-apply-filters">تطبيق الفلاتر</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hotels List Section -->
+        <section id="hotels-list">
+            <div class="container">
+                <div class="hotels-container">
+                    <div class="hotels-header">
+                        <h2>الفنادق المتاحة</h2>
+                        <div class="hotels-count">تم العثور على <span>15</span> فندق</div>
+                        <div class="sorting-options">
+                            <label for="sort-by">ترتيب حسب:</label>
+                            <select id="sort-by" name="sort-by">
+                                <option value="recommended" selected>الأكثر توصية</option>
+                                <option value="price-low">السعر: من الأقل إلى الأعلى</option>
+                                <option value="price-high">السعر: من الأعلى إلى الأقل</option>
+                                <option value="rating">التقييم</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hotels-grid">
+                        <!-- Hotel Card 1 -->
+                        <div class="hotel-card">
+                            <div class="hotel-image">
+                                <img src="https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="فندق المامونية">
+                                <div class="hotel-ribbon">الأكثر حجزًا</div>
+                                <button class="favorite-btn" aria-label="إضافة إلى المفضلة">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="hotel-content">
+                                <div class="hotel-info">
+                                    <h3 class="hotel-title">فندق المامونية</h3>
+                                    <div class="hotel-location"><i class="fas fa-map-marker-alt"></i> مراكش، المغرب</div>
+                                    <div class="hotel-rating">
+                                        <span class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                        <span class="rating-count">532 تقييم</span>
+                                    </div>
+                                    <div class="hotel-amenities">
+                                        <span class="amenity"><i class="fas fa-wifi"></i> واي فاي مجاني</span>
+                                        <span class="amenity"><i class="fas fa-swimming-pool"></i> مسبح</span>
+                                        <span class="amenity"><i class="fas fa-spa"></i> سبا</span>
+                                        <span class="amenity"><i class="fas fa-utensils"></i> مطعم</span>
+                                    </div>
+                                </div>
+                                <div class="hotel-booking">
+                                    <div class="hotel-price">
+                                        <div class="price-label">السعر لليلة</div>
+                                        <div class="price-value">
+                                            <span class="price">2500</span>
+                                            <span class="currency">درهم</span>
+                                        </div>
+                                        <div class="price-taxes">شامل الضرائب والرسوم</div>
+                                    </div>
+                                    <a href="hotels/mamounia.html" class="btn btn-primary">عرض التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Hotel Card 2 -->
+                        <div class="hotel-card">
+                            <div class="hotel-image">
+                                <img src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="رياض دار السلام">
+                                <div class="hotel-ribbon">عرض خاص</div>
+                                <button class="favorite-btn" aria-label="إضافة إلى المفضلة">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="hotel-content">
+                                <div class="hotel-info">
+                                    <h3 class="hotel-title">رياض دار السلام</h3>
+                                    <div class="hotel-location"><i class="fas fa-map-marker-alt"></i> فاس، المغرب</div>
+                                    <div class="hotel-rating">
+                                        <span class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </span>
+                                        <span class="rating-count">423 تقييم</span>
+                                    </div>
+                                    <div class="hotel-amenities">
+                                        <span class="amenity"><i class="fas fa-wifi"></i> واي فاي مجاني</span>
+                                        <span class="amenity"><i class="fas fa-coffee"></i> إفطار مجاني</span>
+                                        <span class="amenity"><i class="fas fa-parking"></i> موقف سيارات</span>
+                                        <span class="amenity"><i class="fas fa-wind"></i> تكييف</span>
+                                    </div>
+                                </div>
+                                <div class="hotel-booking">
+                                    <div class="hotel-price">
+                                        <div class="price-label">السعر لليلة</div>
+                                        <div class="price-value">
+                                            <span class="old-price">2000</span>
+                                            <span class="price">1800</span>
+                                            <span class="currency">درهم</span>
+                                        </div>
+                                        <div class="price-taxes">شامل الضرائب والرسوم</div>
+                                    </div>
+                                    <a href="hotels/dar-salam.html" class="btn btn-primary">عرض التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Hotel Card 3 -->
+                        <div class="hotel-card">
+                            <div class="hotel-image">
+                                <img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="فندق هيلتون طنجة">
+                                <button class="favorite-btn" aria-label="إضافة إلى المفضلة">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="hotel-content">
+                                <div class="hotel-info">
+                                    <h3 class="hotel-title">هيلتون طنجة</h3>
+                                    <div class="hotel-location"><i class="fas fa-map-marker-alt"></i> طنجة، المغرب</div>
+                                    <div class="hotel-rating">
+                                        <span class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </span>
+                                        <span class="rating-count">356 تقييم</span>
+                                    </div>
+                                    <div class="hotel-amenities">
+                                        <span class="amenity"><i class="fas fa-wifi"></i> واي فاي مجاني</span>
+                                        <span class="amenity"><i class="fas fa-swimming-pool"></i> مسبح</span>
+                                        <span class="amenity"><i class="fas fa-dumbbell"></i> صالة رياضية</span>
+                                        <span class="amenity"><i class="fas fa-utensils"></i> مطعم</span>
+                                    </div>
+                                </div>
+                                <div class="hotel-booking">
+                                    <div class="hotel-price">
+                                        <div class="price-label">السعر لليلة</div>
+                                        <div class="price-value">
+                                            <span class="price">2100</span>
+                                            <span class="currency">درهم</span>
+                                        </div>
+                                        <div class="price-taxes">شامل الضرائب والرسوم</div>
+                                    </div>
+                                    <a href="hotels/hilton-tangier.html" class="btn btn-primary">عرض التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Hotel Card 4 -->
+                        <div class="hotel-card">
+                            <div class="hotel-image">
+                                <img src="https://images.pexels.com/photos/1591361/pexels-photo-1591361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="منتجع مازاغان">
+                                <button class="favorite-btn" aria-label="إضافة إلى المفضلة">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="hotel-content">
+                                <div class="hotel-info">
+                                    <h3 class="hotel-title">منتجع مازاغان</h3>
+                                    <div class="hotel-location"><i class="fas fa-map-marker-alt"></i> الجديدة، المغرب</div>
+                                    <div class="hotel-rating">
+                                        <span class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                        <span class="rating-count">487 تقييم</span>
+                                    </div>
+                                    <div class="hotel-amenities">
+                                        <span class="amenity"><i class="fas fa-wifi"></i> واي فاي مجاني</span>
+                                        <span class="amenity"><i class="fas fa-swimming-pool"></i> مسبح</span>
+                                        <span class="amenity"><i class="fas fa-spa"></i> سبا</span>
+                                        <span class="amenity"><i class="fas fa-golf-ball"></i> ملعب جولف</span>
+                                    </div>
+                                </div>
+                                <div class="hotel-booking">
+                                    <div class="hotel-price">
+                                        <div class="price-label">السعر لليلة</div>
+                                        <div class="price-value">
+                                            <span class="price">2300</span>
+                                            <span class="currency">درهم</span>
+                                        </div>
+                                        <div class="price-taxes">شامل الضرائب والرسوم</div>
+                                    </div>
+                                    <a href="hotels/mazagan.html" class="btn btn-primary">عرض التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Hotel Card 5 -->
+                        <div class="hotel-card">
+                            <div class="hotel-image">
+                                <img src="https://images.pexels.com/photos/2506990/pexels-photo-2506990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="رياض الجنة">
+                                <button class="favorite-btn" aria-label="إضافة إلى المفضلة">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="hotel-content">
+                                <div class="hotel-info">
+                                    <h3 class="hotel-title">رياض الجنة</h3>
+                                    <div class="hotel-location"><i class="fas fa-map-marker-alt"></i> مراكش، المغرب</div>
+                                    <div class="hotel-rating">
+                                        <span class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </span>
+                                        <span class="rating-count">312 تقييم</span>
+                                    </div>
+                                    <div class="hotel-amenities">
+                                        <span class="amenity"><i class="fas fa-wifi"></i> واي فاي مجاني</span>
+                                        <span class="amenity"><i class="fas fa-swimming-pool"></i> مسبح</span>
+                                        <span class="amenity"><i class="fas fa-coffee"></i> إفطار مجاني</span>
+                                        <span class="amenity"><i class="fas fa-wind"></i> تكييف</span>
+                                    </div>
+                                </div>
+                                <div class="hotel-booking">
+                                    <div class="hotel-price">
+                                        <div class="price-label">السعر لليلة</div>
+                                        <div class="price-value">
+                                            <span class="price">1500</span>
+                                            <span class="currency">درهم</span>
+                                        </div>
+                                        <div class="price-taxes">شامل الضرائب والرسوم</div>
+                                    </div>
+                                    <a href="hotels/riad-aljanna.html" class="btn btn-primary">عرض التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Hotel Card 6 -->
+                        <div class="hotel-card">
+                            <div class="hotel-image">
+                                <img src="https://images.pexels.com/photos/2344267/pexels-photo-2344267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="فندق رويال منصور">
+                                <button class="favorite-btn" aria-label="إضافة إلى المفضلة">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="hotel-content">
+                                <div class="hotel-info">
+                                    <h3 class="hotel-title">فندق رويال منصور</h3>
+                                    <div class="hotel-location"><i class="fas fa-map-marker-alt"></i> الدار البيضاء، المغرب</div>
+                                    <div class="hotel-rating">
+                                        <span class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                        <span class="rating-count">425 تقييم</span>
+                                    </div>
+                                    <div class="hotel-amenities">
+                                        <span class="amenity"><i class="fas fa-wifi"></i> واي فاي مجاني</span>
+                                        <span class="amenity"><i class="fas fa-swimming-pool"></i> مسبح</span>
+                                        <span class="amenity"><i class="fas fa-spa"></i> سبا</span>
+                                        <span class="amenity"><i class="fas fa-utensils"></i> مطعم</span>
+                                    </div>
+                                </div>
+                                <div class="hotel-booking">
+                                    <div class="hotel-price">
+                                        <div class="price-label">السعر لليلة</div>
+                                        <div class="price-value">
+                                            <span class="price">2400</span>
+                                            <span class="currency">درهم</span>
+                                        </div>
+                                        <div class="price-taxes">شامل الضرائب والرسوم</div>
+                                    </div>
+                                    <a href="hotels/royal-mansour.html" class="btn btn-primary">عرض التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="pagination-prev" disabled><i class="fas fa-chevron-right"></i></button>
+                        <div class="pagination-pages">
+                            <button class="pagination-page active">1</button>
+                            <button class="pagination-page">2</button>
+                            <button class="pagination-page">3</button>
+                            <span class="pagination-dots">...</span>
+                            <button class="pagination-page">5</button>
+                        </div>
+                        <button class="pagination-next"><i class="fas fa-chevron-left"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Destinations -->
+        <section id="popular-destinations">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">المدن الشهيرة</h2>
+                    <p class="section-description">استكشف الفنادق في أشهر المدن المغربية</p>
+                </div>
+                
+                <div class="cities-grid">
+                    <a href="hotels.html?city=marrakech" class="city-card">
+                        <img src="https://images.pexels.com/photos/3290075/pexels-photo-3290075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="مراكش">
+                        <div class="city-overlay">
+                            <h3 class="city-name">مراكش</h3>
+                            <div class="hotels-count">120 فندق</div>
+                        </div>
+                    </a>
+                    
+                    <a href="hotels.html?city=fes" class="city-card">
+                        <img src="https://images.pexels.com/photos/4388167/pexels-photo-4388167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="فاس">
+                        <div class="city-overlay">
+                            <h3 class="city-name">فاس</h3>
+                            <div class="hotels-count">85 فندق</div>
+                        </div>
+                    </a>
+                    
+                    <a href="hotels.html?city=casablanca" class="city-card">
+                        <img src="https://images.pexels.com/photos/3253984/pexels-photo-3253984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="الدار البيضاء">
+                        <div class="city-overlay">
+                            <h3 class="city-name">الدار البيضاء</h3>
+                            <div class="hotels-count">150 فندق</div>
+                        </div>
+                    </a>
+                    
+                    <a href="hotels.html?city=tangier" class="city-card">
+                        <img src="https://images.pexels.com/photos/3879060/pexels-photo-3879060.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="طنجة">
+                        <div class="city-overlay">
+                            <h3 class="city-name">طنجة</h3>
+                            <div class="hotels-count">95 فندق</div>
+                        </div>
+                    </a>
+                    
+                    <a href="hotels.html?city=chefchaouen" class="city-card">
+                        <img src="https://images.pexels.com/photos/2404046/pexels-photo-2404046.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="شفشاون">
+                        <div class="city-overlay">
+                            <h3 class="city-name">شفشاون</h3>
+                            <div class="hotels-count">60 فندق</div>
+                        </div>
+                    </a>
+                    
+                    <a href="hotels.html?city=rabat" class="city-card">
+                        <img src="https://images.pexels.com/photos/11758594/pexels-photo-11758594.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="الرباط">
+                        <div class="city-overlay">
+                            <h3 class="city-name">الرباط</h3>
+                            <div class="hotels-count">110 فندق</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="main-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="أسفار المغرب">
+                        <span>أسفار المغرب</span>
+                    </div>
+                    <p class="footer-description">نوفر لك أفضل خدمات الحجز للفنادق والطيران والقطارات في المغرب</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3 class="footer-title">روابط سريعة</h3>
+                        <ul>
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="hotels.html">الفنادق</a></li>
+                            <li><a href="flights.html">الطيران</a></li>
+                            <li><a href="trains.html">القطارات</a></li>
+                            <li><a href="destinations.html">الوجهات</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="footer-title">المعلومات</h3>
+                        <ul>
+                            <li><a href="about.html">من نحن</a></li>
+                            <li><a href="contact.html">اتصل بنا</a></li>
+                            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                            <li><a href="terms.html">الشروط والأحكام</a></li>
+                            <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="footer-title">اتصل بنا</h3>
+                        <ul class="contact-info">
+                            <li><i class="fas fa-map-marker-alt"></i> شارع محمد الخامس، الرباط، المغرب</li>
+                            <li><i class="fas fa-phone"></i> +212 5XX-XXXXXX</li>
+                            <li><i class="fas fa-envelope"></i> info@morocco-travels.ma</li>
+                        </ul>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="footer-title">النشرة الإخبارية</h3>
+                        <p>اشترك في نشرتنا الإخبارية للحصول على أحدث العروض والخصومات</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="البريد الإلكتروني" required>
+                            <button type="submit" class="btn btn-sm">اشتراك</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p class="copyright">© 2025 أسفار المغرب. جميع الحقوق محفوظة.</p>
+                    <div class="payment-methods">
+                        <span>طرق الدفع:</span>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/hotels.js"></script>
+</body>
+</html>
