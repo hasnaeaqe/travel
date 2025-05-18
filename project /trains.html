@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حجز تذاكر القطار | أسفار المغرب</title>
+    <title>القطارات - أسفار المغرب</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/trains.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
 </head>
 <body>
     <div class="page-container">
-        <!-- Header Section -->
+        <!-- Header -->
         <header id="main-header">
             <div class="container">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="أسفار المغرب">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="أسفار المغرب">
                         <span>أسفار المغرب</span>
                     </a>
                 </div>
@@ -30,18 +29,6 @@
                     </ul>
                 </nav>
                 <div class="user-actions">
-                    <div class="language-selector">
-                        <button class="current-lang">
-                            <img src="img/flags/ma.svg" alt="العربية">
-                            <span>العربية</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <ul class="language-dropdown">
-                            <li class="active"><a href="?lang=ar"><img src="img/flags/ma.svg" alt="العربية">العربية</a></li>
-                            <li><a href="?lang=fr"><img src="img/flags/fr.svg" alt="Français">Français</a></li>
-                            <li><a href="?lang=en"><img src="img/flags/gb.svg" alt="English">English</a></li>
-                        </ul>
-                    </div>
                     <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
                     <a href="signup.html" class="btn btn-primary">إنشاء حساب</a>
                     <button class="mobile-menu-toggle">
@@ -54,734 +41,208 @@
         </header>
 
         <!-- Hero Section -->
-        <section id="trains-hero">
+        <section id="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">حجز تذاكر القطار في المغرب</h1>
-                    <p class="hero-description">تنقل بسهولة وراحة بين المدن المغربية مع خدمة حجز القطارات المريحة</p>
-                </div>
-            </div>
-        </section>
+                    <h1 class="hero-title">ابحث عن رحلتك بالقطار</h1>
+                    <p class="hero-description">قارن بين أفضل خطوط القطارات واحجز تذكرتك بسهولة وأمان</p>
 
-        <!-- Train Search Section -->
-        <section id="trains-search">
-            <div class="container">
-                <div class="search-container">
-                    <div class="search-tabs">
-                        <button class="tab-btn active" data-tab="one-way">ذهاب</button>
-                        <button class="tab-btn" data-tab="round-trip">ذهاب وعودة</button>
-                    </div>
-                    
-                    <div class="search-form active" id="one-way-form">
-                        <form action="trains-results.html" method="get">
-                            <input type="hidden" name="trip-type" value="one-way">
+                    <!-- Search Form -->
+                    <div class="search-container">
+                        <form action="#" method="get" class="train-search-form">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="departure-station">محطة الانطلاق</label>
-                                    <div class="input-icon-wrapper">
-                                        <select id="departure-station" name="departure-station" required>
-                                            <option value="" disabled selected>اختر محطة الانطلاق</option>
-                                            <option value="casablanca">الدار البيضاء - المحطة المركزية</option>
-                                            <option value="rabat">الرباط - أكدال</option>
-                                            <option value="marrakech">مراكش</option>
-                                            <option value="tangier">طنجة</option>
-                                            <option value="fes">فاس</option>
-                                            <option value="meknes">مكناس</option>
-                                            <option value="kenitra">القنيطرة</option>
-                                            <option value="oujda">وجدة</option>
-                                        </select>
-                                        <i class="fas fa-subway"></i>
-                                    </div>
-                                </div>
-                                <div class="swap-btn">
-                                    <button type="button" class="btn-swap">
-                                        <i class="fas fa-exchange-alt"></i>
-                                    </button>
+                                    <label for="departure-station">محطة المغادرة</label>
+                                    <input type="text" id="departure-station" name="departure-station" placeholder="الرباط، الدار البيضاء...">
                                 </div>
                                 <div class="form-group">
                                     <label for="arrival-station">محطة الوصول</label>
-                                    <div class="input-icon-wrapper">
-                                        <select id="arrival-station" name="arrival-station" required>
-                                            <option value="" disabled selected>اختر محطة الوصول</option>
-                                            <option value="casablanca">الدار البيضاء - المحطة المركزية</option>
-                                            <option value="rabat">الرباط - أكدال</option>
-                                            <option value="marrakech">مراكش</option>
-                                            <option value="tangier">طنجة</option>
-                                            <option value="fes">فاس</option>
-                                            <option value="meknes">مكناس</option>
-                                            <option value="kenitra">القنيطرة</option>
-                                            <option value="oujda">وجدة</option>
-                                        </select>
-                                        <i class="fas fa-subway"></i>
-                                    </div>
+                                    <input type="text" id="arrival-station" name="arrival-station" placeholder="طنجة، مراكش...">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="departure-date">تاريخ السفر</label>
-                                    <div class="input-icon-wrapper">
-                                        <input type="date" id="departure-date" name="departure-date" required>
-                                        <i class="fas fa-calendar-alt"></i>
-                                    </div>
+                                    <label for="train-date">تاريخ الرحلة</label>
+                                    <input type="date" id="train-date" name="train-date">
                                 </div>
                                 <div class="form-group">
-                                    <label for="departure-time">وقت مفضل للمغادرة</label>
-                                    <div class="input-icon-wrapper">
-                                        <select id="departure-time" name="departure-time">
-                                            <option value="anytime" selected>أي وقت</option>
-                                            <option value="morning">صباحًا (6:00 - 12:00)</option>
-                                            <option value="afternoon">ظهرًا (12:00 - 18:00)</option>
-                                            <option value="evening">مساءً (18:00 - 00:00)</option>
-                                        </select>
-                                        <i class="fas fa-clock"></i>
-                                    </div>
+                                    <label for="train-passengers">عدد المسافرين</label>
+                                    <select id="train-passengers" name="train-passengers">
+                                        <option value="1">1 مسافر</option>
+                                        <option value="2" selected>2 مسافر</option>
+                                        <option value="3">3 مسافرين</option>
+                                        <option value="4">4+ مسافرين</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="passengers">عدد المسافرين</label>
-                                    <div class="input-icon-wrapper dropdown-wrapper">
-                                        <input type="text" id="passengers" name="passengers" placeholder="1 بالغ" readonly>
-                                        <i class="fas fa-user-friends"></i>
-                                        <i class="fas fa-chevron-down dropdown-icon"></i>
-                                        
-                                        <div class="passengers-dropdown">
-                                            <div class="passenger-type">
-                                                <span class="passenger-label">البالغون (فوق 15 سنة)</span>
-                                                <div class="passenger-counter">
-                                                    <button type="button" class="counter-btn minus" data-type="adults">-</button>
-                                                    <input type="number" value="1" min="1" max="9" id="adults" name="adults" readonly>
-                                                    <button type="button" class="counter-btn plus" data-type="adults">+</button>
-                                                </div>
-                                            </div>
-                                            <div class="passenger-type">
-                                                <span class="passenger-label">الأطفال (4-15 سنة)</span>
-                                                <div class="passenger-counter">
-                                                    <button type="button" class="counter-btn minus" data-type="children">-</button>
-                                                    <input type="number" value="0" min="0" max="8" id="children" name="children" readonly>
-                                                    <button type="button" class="counter-btn plus" data-type="children">+</button>
-                                                </div>
-                                            </div>
-                                            <div class="passenger-type">
-                                                <span class="passenger-label">الرضع (أقل من 4 سنوات)</span>
-                                                <div class="passenger-counter">
-                                                    <button type="button" class="counter-btn minus" data-type="infants">-</button>
-                                                    <input type="number" value="0" min="0" max="4" id="infants" name="infants" readonly>
-                                                    <button type="button" class="counter-btn plus" data-type="infants">+</button>
-                                                </div>
-                                            </div>
-                                            <button type="button" class="btn btn-sm apply-passengers">تطبيق</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="class">درجة السفر</label>
-                                    <div class="input-icon-wrapper">
-                                        <select id="class" name="class">
-                                            <option value="first">الدرجة الأولى</option>
-                                            <option value="second" selected>الدرجة الثانية</option>
-                                        </select>
-                                        <i class="fas fa-couch"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-search">بحث عن الرحلات <i class="fas fa-search"></i></button>
-                        </form>
-                    </div>
-                    
-                    <div class="search-form" id="round-trip-form">
-                        <form action="trains-results.html" method="get">
-                            <input type="hidden" name="trip-type" value="round-trip">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="departure-station-return">محطة الانطلاق</label>
-                                    <div class="input-icon-wrapper">
-                                        <select id="departure-station-return" name="departure-station" required>
-                                            <option value="" disabled selected>اختر محطة الانطلاق</option>
-                                            <option value="casablanca">الدار البيضاء - المحطة المركزية</option>
-                                            <option value="rabat">الرباط - أكدال</option>
-                                            <option value="marrakech">مراكش</option>
-                                            <option value="tangier">طنجة</option>
-                                            <option value="fes">فاس</option>
-                                            <option value="meknes">مكناس</option>
-                                            <option value="kenitra">القنيطرة</option>
-                                            <option value="oujda">وجدة</option>
-                                        </select>
-                                        <i class="fas fa-subway"></i>
-                                    </div>
-                                </div>
-                                <div class="swap-btn">
-                                    <button type="button" class="btn-swap">
-                                        <i class="fas fa-exchange-alt"></i>
-                                    </button>
-                                </div>
-                                <div class="form-group">
-                                    <label for="arrival-station-return">محطة الوصول</label>
-                                    <div class="input-icon-wrapper">
-                                        <select id="arrival-station-return" name="arrival-station" required>
-                                            <option value="" disabled selected>اختر محطة الوصول</option>
-                                            <option value="casablanca">الدار البيضاء - المحطة المركزية</option>
-                                            <option value="rabat">الرباط - أكدال</option>
-                                            <option value="marrakech">مراكش</option>
-                                            <option value="tangier">طنجة</option>
-                                            <option value="fes">فاس</option>
-                                            <option value="meknes">مكناس</option>
-                                            <option value="kenitra">القنيطرة</option>
-                                            <option value="oujda">وجدة</option>
-                                        </select>
-                                        <i class="fas fa-subway"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="outbound-date">تاريخ الذهاب</label>
-                                    <div class="input-icon-wrapper">
-                                        <input type="date" id="outbound-date" name="outbound-date" required>
-                                        <i class="fas fa-calendar-alt"></i>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="return-date">تاريخ العودة</label>
-                                    <div class="input-icon-wrapper">
-                                        <input type="date" id="return-date" name="return-date" required>
-                                        <i class="fas fa-calendar-alt"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="passengers-return">عدد المسافرين</label>
-                                    <div class="input-icon-wrapper dropdown-wrapper">
-                                        <input type="text" id="passengers-return" name="passengers" placeholder="1 بالغ" readonly>
-                                        <i class="fas fa-user-friends"></i>
-                                        <i class="fas fa-chevron-down dropdown-icon"></i>
-                                        
-                                        <div class="passengers-dropdown">
-                                            <div class="passenger-type">
-                                                <span class="passenger-label">البالغون (فوق 15 سنة)</span>
-                                                <div class="passenger-counter">
-                                                    <button type="button" class="counter-btn minus" data-type="adults-return">-</button>
-                                                    <input type="number" value="1" min="1" max="9" id="adults-return" name="adults" readonly>
-                                                    <button type="button" class="counter-btn plus" data-type="adults-return">+</button>
-                                                </div>
-                                            </div>
-                                            <div class="passenger-type">
-                                                <span class="passenger-label">الأطفال (4-15 سنة)</span>
-                                                <div class="passenger-counter">
-                                                    <button type="button" class="counter-btn minus" data-type="children-return">-</button>
-                                                    <input type="number" value="0" min="0" max="8" id="children-return" name="children" readonly>
-                                                    <button type="button" class="counter-btn plus" data-type="children-return">+</button>
-                                                </div>
-                                            </div>
-                                            <div class="passenger-type">
-                                                <span class="passenger-label">الرضع (أقل من 4 سنوات)</span>
-                                                <div class="passenger-counter">
-                                                    <button type="button" class="counter-btn minus" data-type="infants-return">-</button>
-                                                    <input type="number" value="0" min="0" max="4" id="infants-return" name="infants" readonly>
-                                                    <button type="button" class="counter-btn plus" data-type="infants-return">+</button>
-                                                </div>
-                                            </div>
-                                            <button type="button" class="btn btn-sm apply-passengers">تطبيق</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="class-return">درجة السفر</label>
-                                    <div class="input-icon-wrapper">
-                                        <select id="class-return" name="class">
-                                            <option value="first">الدرجة الأولى</option>
-                                            <option value="second" selected>الدرجة الثانية</option>
-                                        </select>
-                                        <i class="fas fa-couch"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-search">بحث عن الرحلات <i class="fas fa-search"></i></button>
+                            <button type="submit" class="btn btn-search">بحث <i class="fas fa-search"></i></button>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Train Types -->
-        <section id="train-types">
+        <!-- Train Results -->
+        <section id="train-results">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">أنواع القطارات في المغرب</h2>
-                    <p class="section-description">تعرف على أنواع القطارات المتاحة للتنقل بين المدن المغربية</p>
+                <div class="filters-and-results">
+                    <!-- Sidebar Filters -->
+                    <aside class="filters-sidebar">
+                        <h3>الفلاتر</h3>
+                        <div class="filter-section">
+                            <h4>نوع القطار</h4>
+                            <ul class="train-type-filter">
+                                <li>
+                                    <input type="checkbox" id="type-alboraq">
+                                    <label for="type-alboraq">البراق</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="type-train-grand-ligne">
+                                    <label for="type-train-grand-ligne">قطار الخط الكبير</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="type-train-local">
+                                    <label for="type-train-local">قطار محلي</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="filter-section">
+                            <h4>نطاق السعر</h4>
+                            <div class="price-range">
+                                <input type="range" min="0" max="1000" step="50" value="500">
+                                <p>الحد الأقصى: <span id="price-value">500</span> درهم</p>
+                            </div>
+                        </div>
+                        <div class="filter-section">
+                            <h4>درجة السفر</h4>
+                            <ul class="class-filter">
+                                <li>
+                                    <input type="checkbox" id="class-economy">
+                                    <label for="class-economy">اقتصادية</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="class-business">
+                                    <label for="class-business">رجال الأعمال</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <!-- Trains Grid -->
+                    <div class="trains-grid">
+                        <div class="train-card">
+                            <div class="train-header">
+                                <div class="train-name">
+                                    <strong>البراق 120</strong><br>
+                                    <small>الرباط - طنجة</small>
+                                </div>
+                                <div class="train-price">180 درهم</div>
+                            </div>
+                            <div class="train-details">
+                                <div class="train-schedule">
+                                    <div class="departure">
+                                        <strong>08:15 صباحًا</strong><br>
+                                        محطة الرباط
+                                    </div>
+                                    <div class="arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+                                    <div class="arrival">
+                                        <strong>09:45 صباحًا</strong><br>
+                                        محطة طنجة
+                                    </div>
+                                </div>
+                                <div class="train-class">
+                                    <i class="fas fa-chair"></i> درجة اقتصادية
+                                </div>
+                                <div class="train-duration">
+                                    <i class="fas fa-clock"></i> مدة الرحلة: 1 ساعة و 30 دقيقة
+                                </div>
+                            </div>
+                            <div class="train-footer">
+                                <a href="trains/booking.html" class="btn btn-sm">اختيار هذا القطار</a>
+                            </div>
+                        </div>
+
+                        <div class="train-card">
+                            <div class="train-header">
+                                <div class="train-name">
+                                    <strong>البراق 140</strong><br>
+                                    <small>الدار البيضاء - فاس</small>
+                                </div>
+                                <div class="train-price">220 درهم</div>
+                            </div>
+                            <div class="train-details">
+                                <div class="train-schedule">
+                                    <div class="departure">
+                                        <strong>10:30 صباحًا</strong><br>
+                                        محطة الدار البيضاء
+                                    </div>
+                                    <div class="arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+                                    <div class="arrival">
+                                        <strong>12:45 ظهرًا</strong><br>
+                                        محطة فاس
+                                    </div>
+                                </div>
+                                <div class="train-class">
+                                    <i class="fas fa-chair"></i> درجة رجال الأعمال
+                                </div>
+                                <div class="train-duration">
+                                    <i class="fas fa-clock"></i> مدة الرحلة: 2 ساعة و 15 دقيقة
+                                </div>
+                            </div>
+                            <div class="train-footer">
+                                <a href="trains/booking.html" class="btn btn-sm">اختيار هذا القطار</a>
+                            </div>
+                        </div>
+
+                        <div class="train-card">
+                            <div class="train-header">
+                                <div class="train-name">
+                                    <strong>قطار رقم 32</strong><br>
+                                    <small>مراكش - الدار البيضاء</small>
+                                </div>
+                                <div class="train-price">150 درهم</div>
+                            </div>
+                            <div class="train-details">
+                                <div class="train-schedule">
+                                    <div class="departure">
+                                        <strong>02:00 مساءً</strong><br>
+                                        محطة مراكش
+                                    </div>
+                                    <div class="arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+                                    <div class="arrival">
+                                        <strong>04:30 مساءً</strong><br>
+                                        محطة الدار البيضاء
+                                    </div>
+                                </div>
+                                <div class="train-class">
+                                    <i class="fas fa-chair"></i> درجة اقتصادية
+                                </div>
+                                <div class="train-duration">
+                                    <i class="fas fa-clock"></i> مدة الرحلة: 2 ساعات و 30 دقيقة
+                                </div>
+                            </div>
+                            <div class="train-footer">
+                                <a href="trains/booking.html" class="btn btn-sm">اختيار هذا القطار</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="train-types-grid">
-                    <div class="train-type-card">
-                        <div class="train-image">
-                            <img src="https://images.pexels.com/photos/958174/pexels-photo-958174.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="قطار البراق">
-                        </div>
-                        <div class="train-content">
-                            <h3 class="train-title">قطار البراق (TGV)</h3>
-                            <p class="train-description">أول قطار فائق السرعة في إفريقيا، يربط بين طنجة والدار البيضاء بسرعة تصل إلى 320 كم/س، ويقطع المسافة في أقل من ساعتين وربع.</p>
-                            <div class="train-features">
-                                <div class="feature">
-                                    <i class="fas fa-tachometer-alt"></i>
-                                    <span>320 كم/س</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-wifi"></i>
-                                    <span>واي فاي مجاني</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-utensils"></i>
-                                    <span>عربة مطعم</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-plug"></i>
-                                    <span>مقابس كهربائية</span>
-                                </div>
-                            </div>
-                            <div class="train-route">
-                                <div class="route-label">المسار:</div>
-                                <div class="route-stations">طنجة - القنيطرة - الرباط - الدار البيضاء</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="train-type-card">
-                        <div class="train-image">
-                            <img src="https://images.pexels.com/photos/730134/pexels-photo-730134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="قطار الأطلس">
-                        </div>
-                        <div class="train-content">
-                            <h3 class="train-title">قطار الأطلس</h3>
-                            <p class="train-description">قطارات حديثة ومكيفة تربط بين المدن الرئيسية في المغرب، مثل الدار البيضاء، مراكش، فاس، وجدة، وغيرها.</p>
-                            <div class="train-features">
-                                <div class="feature">
-                                    <i class="fas fa-tachometer-alt"></i>
-                                    <span>160 كم/س</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-snowflake"></i>
-                                    <span>تكييف</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-couch"></i>
-                                    <span>مقاعد مريحة</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-luggage-cart"></i>
-                                    <span>مساحة للأمتعة</span>
-                                </div>
-                            </div>
-                            <div class="train-route">
-                                <div class="route-label">المسار:</div>
-                                <div class="route-stations">الدار البيضاء - سطات - مراكش - فاس - مكناس - وجدة</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="train-type-card">
-                        <div class="train-image">
-                            <img src="https://images.pexels.com/photos/909659/pexels-photo-909659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="قطار النوم">
-                        </div>
-                        <div class="train-content">
-                            <h3 class="train-title">قطار النوم</h3>
-                            <p class="train-description">قطارات ليلية توفر أسرّة للنوم للرحلات الطويلة، مثل الرحلات بين طنجة ومراكش أو بين الدار البيضاء ووجدة.</p>
-                            <div class="train-features">
-                                <div class="feature">
-                                    <i class="fas fa-bed"></i>
-                                    <span>أسرّة للنوم</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-moon"></i>
-                                    <span>رحلات ليلية</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-lock"></i>
-                                    <span>مقصورات آمنة</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-utensils"></i>
-                                    <span>وجبات خفيفة</span>
-                                </div>
-                            </div>
-                            <div class="train-route">
-                                <div class="route-label">المسار:</div>
-                                <div class="route-stations">طنجة - مراكش | الدار البيضاء - وجدة</div>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="more-trains">
+                    <button class="btn btn-outline">عرض المزيد من القطارات</button>
                 </div>
             </div>
         </section>
 
-        <!-- Popular Routes -->
-        <section id="popular-routes">
+        <!-- Call to Action -->
+        <section id="cta">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">المسارات الأكثر شعبية</h2>
-                    <p class="section-description">استكشف الخطوط الأكثر استخدامًا بين المدن المغربية</p>
-                </div>
-                
-                <div class="routes-grid">
-                    <div class="route-card">
-                        <div class="route-content">
-                            <div class="route-cities">
-                                <div class="departure">
-                                    <div class="city-name">الدار البيضاء</div>
-                                </div>
-                                <div class="route-arrow">
-                                    <i class="fas fa-train"></i>
-                                </div>
-                                <div class="arrival">
-                                    <div class="city-name">مراكش</div>
-                                </div>
-                            </div>
-                            <div class="route-info">
-                                <div class="train-type">قطار الأطلس</div>
-                                <div class="journey-duration"><i class="far fa-clock"></i> 2 ساعة و45 دقيقة</div>
-                                <div class="journey-price">
-                                    <div class="price-item">
-                                        <span class="class">الدرجة الأولى:</span>
-                                        <span class="price">165 درهم</span>
-                                    </div>
-                                    <div class="price-item">
-                                        <span class="class">الدرجة الثانية:</span>
-                                        <span class="price">110 درهم</span>
-                                    </div>
-                                </div>
-                                <div class="journey-frequency">
-                                    <i class="fas fa-info-circle"></i> 15 رحلة يوميًا
-                                </div>
-                            </div>
-                        </div>
-                        <a href="trains-results.html?departure=casablanca&arrival=marrakech" class="route-link"></a>
-                    </div>
-                    
-                    <div class="route-card">
-                        <div class="route-content">
-                            <div class="route-cities">
-                                <div class="departure">
-                                    <div class="city-name">الدار البيضاء</div>
-                                </div>
-                                <div class="route-arrow">
-                                    <i class="fas fa-train"></i>
-                                </div>
-                                <div class="arrival">
-                                    <div class="city-name">طنجة</div>
-                                </div>
-                            </div>
-                            <div class="route-info">
-                                <div class="train-type">قطار البراق</div>
-                                <div class="journey-duration"><i class="far fa-clock"></i> 2 ساعة و10 دقائق</div>
-                                <div class="journey-price">
-                                    <div class="price-item">
-                                        <span class="class">الدرجة الأولى:</span>
-                                        <span class="price">364 درهم</span>
-                                    </div>
-                                    <div class="price-item">
-                                        <span class="class">الدرجة الثانية:</span>
-                                        <span class="price">224 درهم</span>
-                                    </div>
-                                </div>
-                                <div class="journey-frequency">
-                                    <i class="fas fa-info-circle"></i> 8 رحلات يوميًا
-                                </div>
-                            </div>
-                        </div>
-                        <a href="trains-results.html?departure=casablanca&arrival=tangier" class="route-link"></a>
-                    </div>
-                    
-                    <div class="route-card">
-                        <div class="route-content">
-                            <div class="route-cities">
-                                <div class="departure">
-                                    <div class="city-name">الدار البيضاء</div>
-                                </div>
-                                <div class="route-arrow">
-                                    <i class="fas fa-train"></i>
-                                </div>
-                                <div class="arrival">
-                                    <div class="city-name">فاس</div>
-                                </div>
-                            </div>
-                            <div class="route-info">
-                                <div class="train-type">قطار الأطلس</div>
-                                <div class="journey-duration"><i class="far fa-clock"></i> 3 ساعات و20 دقيقة</div>
-                                <div class="journey-price">
-                                    <div class="price-item">
-                                        <span class="class">الدرجة الأولى:</span>
-                                        <span class="price">195 درهم</span>
-                                    </div>
-                                    <div class="price-item">
-                                        <span class="class">الدرجة الثانية:</span>
-                                        <span class="price">130 درهم</span>
-                                    </div>
-                                </div>
-                                <div class="journey-frequency">
-                                    <i class="fas fa-info-circle"></i> 12 رحلة يوميًا
-                                </div>
-                            </div>
-                        </div>
-                        <a href="trains-results.html?departure=casablanca&arrival=fes" class="route-link"></a>
-                    </div>
-                    
-                    <div class="route-card">
-                        <div class="route-content">
-                            <div class="route-cities">
-                                <div class="departure">
-                                    <div class="city-name">طنجة</div>
-                                </div>
-                                <div class="route-arrow">
-                                    <i class="fas fa-train"></i>
-                                </div>
-                                <div class="arrival">
-                                    <div class="city-name">مراكش</div>
-                                </div>
-                            </div>
-                            <div class="route-info">
-                                <div class="train-type">قطار النوم</div>
-                                <div class="journey-duration"><i class="far fa-clock"></i> 10 ساعات</div>
-                                <div class="journey-price">
-                                    <div class="price-item">
-                                        <span class="class">مقصورة خاصة:</span>
-                                        <span class="price">500 درهم</span>
-                                    </div>
-                                    <div class="price-item">
-                                        <span class="class">سرير مشترك:</span>
-                                        <span class="price">350 درهم</span>
-                                    </div>
-                                </div>
-                                <div class="journey-frequency">
-                                    <i class="fas fa-info-circle"></i> رحلة يومية واحدة (ليلية)
-                                </div>
-                            </div>
-                        </div>
-                        <a href="trains-results.html?departure=tangier&arrival=marrakech" class="route-link"></a>
-                    </div>
-                    
-                    <div class="route-card">
-                        <div class="route-content">
-                            <div class="route-cities">
-                                <div class="departure">
-                                    <div class="city-name">الرباط</div>
-                                </div>
-                                <div class="route-arrow">
-                                    <i class="fas fa-train"></i>
-                                </div>
-                                <div class="arrival">
-                                    <div class="city-name">فاس</div>
-                                </div>
-                            </div>
-                            <div class="route-info">
-                                <div class="train-type">قطار الأطلس</div>
-                                <div class="journey-duration"><i class="far fa-clock"></i> 2 ساعة و30 دقيقة</div>
-                                <div class="journey-price">
-                                    <div class="price-item">
-                                        <span class="class">الدرجة الأولى:</span>
-                                        <span class="price">145 درهم</span>
-                                    </div>
-                                    <div class="price-item">
-                                        <span class="class">الدرجة الثانية:</span>
-                                        <span class="price">95 درهم</span>
-                                    </div>
-                                </div>
-                                <div class="journey-frequency">
-                                    <i class="fas fa-info-circle"></i> 10 رحلات يوميًا
-                                </div>
-                            </div>
-                        </div>
-                        <a href="trains-results.html?departure=rabat&arrival=fes" class="route-link"></a>
-                    </div>
-                    
-                    <div class="route-card">
-                        <div class="route-content">
-                            <div class="route-cities">
-                                <div class="departure">
-                                    <div class="city-name">الدار البيضاء</div>
-                                </div>
-                                <div class="route-arrow">
-                                    <i class="fas fa-train"></i>
-                                </div>
-                                <div class="arrival">
-                                    <div class="city-name">وجدة</div>
-                                </div>
-                            </div>
-                            <div class="route-info">
-                                <div class="train-type">قطار النوم</div>
-                                <div class="journey-duration"><i class="far fa-clock"></i> 11 ساعة</div>
-                                <div class="journey-price">
-                                    <div class="price-item">
-                                        <span class="class">مقصورة خاصة:</span>
-                                        <span class="price">520 درهم</span>
-                                    </div>
-                                    <div class="price-item">
-                                        <span class="class">سرير مشترك:</span>
-                                        <span class="price">370 درهم</span>
-                                    </div>
-                                </div>
-                                <div class="journey-frequency">
-                                    <i class="fas fa-info-circle"></i> رحلة يومية واحدة (ليلية)
-                                </div>
-                            </div>
-                        </div>
-                        <a href="trains-results.html?departure=casablanca&arrival=oujda" class="route-link"></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Train Travel Tips -->
-        <section id="travel-tips">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">نصائح للسفر بالقطار في المغرب</h2>
-                    <p class="section-description">استمتع برحلة قطار مريحة وممتعة مع هذه النصائح المفيدة</p>
-                </div>
-                
-                <div class="tips-container">
-                    <div class="tip-card">
-                        <div class="tip-icon">
-                            <i class="fas fa-ticket-alt"></i>
-                        </div>
-                        <h3 class="tip-title">احجز تذكرتك مسبقًا</h3>
-                        <p class="tip-description">لضمان الحصول على مقعد مناسب، خاصة في أوقات الذروة والعطلات، احرص على حجز تذكرتك قبل موعد السفر بعدة أيام.</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3 class="tip-title">صل مبكرًا للمحطة</h3>
-                        <p class="tip-description">ينصح بالوصول إلى المحطة قبل 30 دقيقة على الأقل من موعد القطار، خاصة في المحطات الكبيرة مثل الدار البيضاء ومراكش.</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">
-                            <i class="fas fa-suitcase"></i>
-                        </div>
-                        <h3 class="tip-title">الأمتعة المسموح بها</h3>
-                        <p class="tip-description">يمكنك حمل حقيبتين كبيرتين وحقيبة يد صغيرة. تأكد من وضع بطاقة عليها مع معلومات الاتصال الخاصة بك.</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h3 class="tip-title">الطعام والمشروبات</h3>
-                        <p class="tip-description">توفر قطارات البراق والأطلس عربات مطعم، ولكن يمكنك أيضًا إحضار وجبات خفيفة ومشروبات معك للرحلة.</p>
-                    </div>
-                </div>
-                
-                <div class="more-tips">
-                    <a href="train-travel-tips.html" class="btn btn-outline">المزيد من نصائح السفر</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Train Map Section -->
-        <section id="train-map">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">خريطة شبكة القطارات المغربية</h2>
-                    <p class="section-description">تعرف على شبكة السكك الحديدية في المغرب</p>
-                </div>
-                
-                <div class="map-container">
-                    <img src="https://images.pexels.com/photos/4429840/pexels-photo-4429840.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="خريطة شبكة القطارات المغربية" class="responsive-map">
-                    <a href="img/morocco-train-map-large.jpg" class="btn btn-outline map-zoom" target="_blank">تكبير الخريطة</a>
-                </div>
-                
-                <div class="map-legend">
-                    <div class="legend-item">
-                        <span class="line-color line-color-red"></span>
-                        <span class="line-description">مسار البراق (TGV)</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="line-color line-color-blue"></span>
-                        <span class="line-description">مسارات قطارات الأطلس</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="line-color line-color-green"></span>
-                        <span class="line-description">مسارات قطارات النوم</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="station-icon main-station"></span>
-                        <span class="line-description">محطات رئيسية</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="station-icon secondary-station"></span>
-                        <span class="line-description">محطات ثانوية</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Information -->
-        <section id="contact-info">
-            <div class="container">
-                <div class="contact-cards">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h3 class="contact-title">مركز خدمة العملاء</h3>
-                        <p class="contact-description">للاستفسارات وطلب المساعدة</p>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <span>+212 5XX-XXXXXX</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>info@morocco-travels.ma</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-clock"></i>
-                                <span>8:00 صباحًا - 8:00 مساءً</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-train"></i>
-                        </div>
-                        <h3 class="contact-title">المكتب الوطني للسكك الحديدية</h3>
-                        <p class="contact-description">للاستعلام عن مواعيد القطارات والتغييرات</p>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <span>2255 (من المغرب)</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-globe"></i>
-                                <span>www.oncf.ma</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>تطبيق ONCF (أندرويد وآيفون)</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                        <h3 class="contact-title">مكاتب التذاكر</h3>
-                        <p class="contact-description">للحجز من محطات القطار مباشرة</p>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <i class="fas fa-clock"></i>
-                                <span>5:00 صباحًا - 10:00 مساءً</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-info-circle"></i>
-                                <span>متوفرة في جميع محطات القطار الرئيسية</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-credit-card"></i>
-                                <span>تقبل الدفع النقدي والبطاقات</span>
-                            </div>
-                        </div>
+                <div class="cta-content">
+                    <h2 class="cta-title">ابدأ بالتخطيط لرحلتك الآن</h2>
+                    <p class="cta-description">ابحث عن أفضل الفنادق والرحلات للوجهة التي اخترتها</p>
+                    <div class="cta-buttons">
+                        <a href="hotels.html" class="btn btn-primary">ابحث عن فندق</a>
+                        <a href="flights.html" class="btn btn-outline">ابحث عن رحلة طيران</a>
                     </div>
                 </div>
             </div>
@@ -792,12 +253,11 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-logo">
-                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="أسفار المغرب">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="أسفار المغرب">
                         <span>أسفار المغرب</span>
                     </div>
                     <p class="footer-description">نوفر لك أفضل خدمات الحجز للفنادق والطيران والقطارات في المغرب</p>
                 </div>
-                
                 <div class="footer-links">
                     <div class="footer-section">
                         <h3 class="footer-title">روابط سريعة</h3>
@@ -809,7 +269,6 @@
                             <li><a href="destinations.html">الوجهات</a></li>
                         </ul>
                     </div>
-                    
                     <div class="footer-section">
                         <h3 class="footer-title">المعلومات</h3>
                         <ul>
@@ -820,7 +279,6 @@
                             <li><a href="privacy.html">سياسة الخصوصية</a></li>
                         </ul>
                     </div>
-                    
                     <div class="footer-section">
                         <h3 class="footer-title">اتصل بنا</h3>
                         <ul class="contact-info">
@@ -835,7 +293,6 @@
                             <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
-                    
                     <div class="footer-section">
                         <h3 class="footer-title">النشرة الإخبارية</h3>
                         <p>اشترك في نشرتنا الإخبارية للحصول على أحدث العروض والخصومات</p>
@@ -845,7 +302,6 @@
                         </form>
                     </div>
                 </div>
-                
                 <div class="footer-bottom">
                     <p class="copyright">© 2025 أسفار المغرب. جميع الحقوق محفوظة.</p>
                     <div class="payment-methods">
@@ -859,7 +315,7 @@
         </footer>
     </div>
 
+    <!-- JS -->
     <script src="js/main.js"></script>
-    <script src="js/trains.js"></script>
 </body>
 </html>
