@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ar-MA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | أسفار المغرب</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="أسفار المغرب">
+                    <span>أسفار المغرب</span>
+                </div>
+                <button class="sidebar-close" id="sidebar-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="محمد العلوي">
+                </div>
+                <div class="user-details">
+                    <h3 class="user-name">محمد العلوي</h3>
+                    <p class="user-email">mohammed@example.com</p>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dashboard-profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>الملف الشخصي</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dashboard-bookings.html">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>حجوزاتي</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dashboard-hotels.html">
+                            <i class="fas fa-hotel"></i>
+                            <span>الفنادق</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dashboard-flights.html">
+                            <i class="fas fa-plane"></i>
+                            <span>الطيران</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dashboard-trains.html">
+                            <i class="fas fa-train"></i>
+                            <span>القطارات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dashboard-favorites.html">
+                            <i class="fas fa-heart"></i>
+                            <span>المفضلة</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dashboard-reviews.html">
+                            <i class="fas fa-star"></i>
+                            <span>تقييماتي</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dashboard-settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>الإعدادات</span>
+                        </a>
+                    </li>
+                    <li class="logout">
+                        <a href="backend/logout.php">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>تسجيل الخروج</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <button class="sidebar-toggle" id="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="header-search">
+                    <form action="search.php" method="get">
+                        <div class="search-input">
+                            <input type="text" name="query" placeholder="البحث عن الفنادق، الرحلات، الوجهات...">
+                            <button type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="notification-dropdown">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-header">
+                                <h3>الإشعارات</h3>
+                                <a href="#">تعليم الكل كمقروء</a>
+                            </div>
+                            <div class="dropdown-body">
+                                <a href="#" class="notification-item unread">
+                                    <div class="notification-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-text">تم تأكيد حجز الفندق الخاص بك</p>
+                                        <span class="notification-time">منذ ساعتين</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="notification-item unread">
+                                    <div class="notification-icon">
+                                        <i class="fas fa-percent"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-text">خصم 15% على حجوزات الطيران الجديدة</p>
+                                        <span class="notification-time">منذ 5 ساعات</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="notification-item unread">
+                                    <div class="notification-icon">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-text">تحديث مهم بخصوص رحلتك القادمة</p>
+                                        <span class="notification-time">منذ يوم</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="notification-item">
+                                    <div class="notification-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-text">شكراً لتقييمك الأخير للفندق</p>
+                                        <span class="notification-time">منذ 3 أيام</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="dropdown-footer">
+                                <a href="dashboard-notifications.html">عرض جميع الإشعارات</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="index.html" class="home-link">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <div class="page-header">
+                    <h1 class="page-title">لوحة التحكم</h1>
+                    <p class="page-description">مرحباً بك يا محمد، استعرض حجوزاتك ومعلوماتك</p>
+                </div>
+                
+                <!-- Dashboard Overview Cards -->
+                <div class="overview-cards">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">3</h3>
+                            <p class="card-description">حجوزات نشطة</p>
+                        </div>
+                        <a href="dashboard-bookings.html" class="card-link">
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">7</h3>
+                            <p class="card-description">عناصر في المفضلة</p>
+                        </div>
+                        <a href="dashboard-favorites.html" class="card-link">
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">4</h3>
+                            <p class="card-description">تقييمات</p>
+                        </div>
+                        <a href="dashboard-reviews.html" class="card-link">
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">2</h3>
+                            <p class="card-description">عروض خاصة</p>
+                        </div>
+                        <a href="special-offers.html" class="card-link">
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Upcoming Bookings -->
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2 class="section-title">الحجوزات القادمة</h2>
+                        <a href="dashboard-bookings.html" class="view-all">عرض الكل</a>
+                    </div>
+                    
+                    <div class="booking-cards">
+                        <div class="booking-card">
+                            <div class="booking-image">
+                                <img src="https://images.pexels.com/photos/2844474/pexels-photo-2844474.jpeg" alt="فندق لا مامونية">
+                                <div class="booking-type hotel">فندق</div>
+                            </div>
+                            <div class="booking-details">
+                                <h3 class="booking-title">فندق لا مامونية</h3>
+                                <div class="booking-info">
+                                    <div class="info-item">
+                                        <span class="info-label">تاريخ الوصول:</span>
+                                        <span class="info-value">15 يناير 2025</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">تاريخ المغادرة:</span>
+                                        <span class="info-value">18 يناير 2025</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">الضيوف:</span>
+                                        <span class="info-value">2 بالغين، 1 طفل</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">الحالة:</span>
+                                        <span class="info-value status-confirmed">مؤكد</span>
+                                    </div>
+                                </div>
+                                <div class="booking-actions">
+                                    <a href="booking-details.html?id=123" class="btn btn-sm">عرض التفاصيل</a>
+                                    <a href="#" class="btn btn-sm btn-outline">تعديل الحجز</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="booking-card">
+                            <div class="booking-image">
+                                <img src="https://images.pexels.com/photos/1536382/pexels-photo-1536382.jpeg" alt="رحلة طيران">
+                                <div class="booking-type flight">طيران</div>
+                            </div>
+                            <div class="booking-details">
+                                <h3 class="booking-title">الدار البيضاء إلى مراكش</h3>
+                                <div class="booking-info">
+                                    <div class="info-item">
+                                        <span class="info-label">تاريخ المغادرة:</span>
+                                        <span class="info-value">15 يناير 2025</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">وقت المغادرة:</span>
+                                        <span class="info-value">08:00 صباحاً</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">رقم الرحلة:</span>
+                                        <span class="info-value">AT202</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">الحالة:</span>
+                                        <span class="info-value status-confirmed">مؤكد</span>
+                                    </div>
+                                </div>
+                                <div class="booking-actions">
+                                    <a href="booking-details.html?id=456" class="btn btn-sm">عرض التفاصيل</a>
+                                    <a href="#" class="btn btn-sm btn-outline">تعديل الحجز</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity & Special Offers -->
+                <div class="two-column-section">
+                    <!-- Recent Activity -->
+                    <div class="section-container">
+                        <div class="section-header">
+                            <h2 class="section-title">النشاط الأخير</h2>
+                            <a href="dashboard-activity.html" class="view-all">عرض الكل</a>
+                        </div>
+                        
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">تم تأكيد حجز <a href="#">فندق لا مامونية</a></p>
+                                    <span class="activity-time">منذ ساعتين</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">تم حجز تذكرة طيران من <a href="#">الدار البيضاء إلى مراكش</a></p>
+                                    <span class="activity-time">منذ يوم</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">تمت إضافة <a href="#">مخيم الصحراء الفاخر</a> إلى المفضلة</p>
+                                    <span class="activity-time">منذ 3 أيام</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">تم تقييم <a href="#">رياض دار السلام</a> بـ 4.5 نجوم</p>
+                                    <span class="activity-time">منذ 5 أيام</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Special Offers -->
+                    <div class="section-container">
+                        <div class="section-header">
+                            <h2 class="section-title">عروض خاصة</h2>
+                            <a href="special-offers.html" class="view-all">عرض الكل</a>
+                        </div>
+                        
+                        <div class="offers-list">
+                            <div class="offer-card">
+                                <div class="offer-badge">خصم 20%</div>
+                                <div class="offer-image">
+                                    <img src="https://images.pexels.com/photos/2662183/pexels-photo-2662183.jpeg" alt="عرض الصحراء">
+                                </div>
+                                <div class="offer-content">
+                                    <h3 class="offer-title">مغامرة الصحراء الخاصة</h3>
+                                    <p class="offer-description">استمتع بخصم 20% على الإقامة في مخيم الصحراء الفاخر لليلتين</p>
+                                    <div class="offer-expiry">ينتهي في: 30 يناير 2025</div>
+                                    <a href="offer-details.html?id=789" class="btn btn-sm btn-secondary">عرض التفاصيل</a>
+                                </div>
+                            </div>
+                            
+                            <div class="offer-card">
+                                <div class="offer-badge">عرض خاص</div>
+                                <div class="offer-image">
+                                    <img src="https://images.pexels.com/photos/2736522/pexels-photo-2736522.jpeg" alt="عرض فندق">
+                                </div>
+                                <div class="offer-content">
+                                    <h3 class="offer-title">إقامة فاخرة في رياض دار السلام</h3>
+                                    <p class="offer-description">اشتر ليلتين واحصل على الليلة الثالثة مجاناً، مع وجبة إفطار فاخرة</p>
+                                    <div class="offer-expiry">ينتهي في: 15 فبراير 2025</div>
+                                    <a href="offer-details.html?id=790" class="btn btn-sm btn-secondary">عرض التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recommended Destinations -->
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2 class="section-title">وجهات مقترحة لك</h2>
+                        <a href="destinations.html" class="view-all">عرض الكل</a>
+                    </div>
+                    
+                    <div class="recommended-destinations">
+                        <div class="destination-card">
+                            <div class="destination-image">
+                                <img src="https://images.pexels.com/photos/4388167/pexels-photo-4388167.jpeg" alt="فاس">
+                                <div class="destination-overlay">
+                                    <div class="destination-price">ابتداءً من 1100 درهم</div>
+                                </div>
+                            </div>
+                            <div class="destination-content">
+                                <h3 class="destination-title">فاس</h3>
+                                <div class="destination-meta">
+                                    <span class="destination-rating"><i class="fas fa-star"></i> 4.6</span>
+                                    <span class="destination-type">المدينة العتيقة</span>
+                                </div>
+                                <p class="destination-description">استكشف واحدة من أقدم المدن في العالم بمدينتها العتيقة وأسواقها التقليدية</p>
+                                <a href="destinations/fes.html" class="btn btn-sm">عرض التفاصيل</a>
+                            </div>
+                        </div>
+                        
+                        <div class="destination-card">
+                            <div class="destination-image">
+                                <img src="https://images.pexels.com/photos/3290075/pexels-photo-3290075.jpeg" alt="مراكش">
+                                <div class="destination-overlay">
+                                    <div class="destination-price">ابتداءً من 1200 درهم</div>
+                                </div>
+                            </div>
+                            <div class="destination-content">
+                                <h3 class="destination-title">مراكش</h3>
+                                <div class="destination-meta">
+                                    <span class="destination-rating"><i class="fas fa-star"></i> 4.8</span>
+                                    <span class="destination-type">المدينة الحمراء</span>
+                                </div>
+                                <p class="destination-description">استكشف سحر المدينة القديمة، ساحة جامع الفنا، وحدائق ماجوريل</p>
+                                <a href="destinations/marrakech.html" class="btn btn-sm">عرض التفاصيل</a>
+                            </div>
+                        </div>
+                        
+                        <div class="destination-card">
+                            <div class="destination-image">
+                                <img src="https://images.pexels.com/photos/2404046/pexels-photo-2404046.jpeg" alt="شفشاون">
+                                <div class="destination-overlay">
+                                    <div class="destination-price">ابتداءً من 900 درهم</div>
+                                </div>
+                            </div>
+                            <div class="destination-content">
+                                <h3 class="destination-title">شفشاون</h3>
+                                <div class="destination-meta">
+                                    <span class="destination-rating"><i class="fas fa-star"></i> 4.7</span>
+                                    <span class="destination-type">المدينة الزرقاء</span>
+                                </div>
+                                <p class="destination-description">اكتشف المدينة الزرقاء الخلابة بزقاقها الضيقة وتاريخها العريق</p>
+                                <a href="destinations/chefchaouen.html" class="btn btn-sm">عرض التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <footer class="dashboard-footer">
+                <p>&copy; 2025 أسفار المغرب. جميع الحقوق محفوظة.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

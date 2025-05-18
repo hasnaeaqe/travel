@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar-MA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب | أسفار المغرب</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header Section -->
+        <header id="main-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="أسفار المغرب">
+                        <span>أسفار المغرب</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="hotels.html">الفنادق</a></li>
+                        <li><a href="flights.html">الطيران</a></li>
+                        <li><a href="trains.html">القطارات</a></li>
+                        <li><a href="destinations.html">الوجهات</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
+                    <a href="signup.html" class="btn btn-primary active">إنشاء حساب</a>
+                    <button class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Signup Section -->
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-image">
+                        <img src="https://images.pexels.com/photos/7534364/pexels-photo-7534364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="إنشاء حساب">
+                    </div>
+                    <div class="auth-form">
+                        <h1 class="auth-title">إنشاء حساب جديد</h1>
+                        <p class="auth-subtitle">انضم إلينا اليوم واستمتع بتجربة سفر فريدة في المغرب</p>
+                        
+                        <form id="signup-form" action="backend/register.php" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstname">الاسم الأول</label>
+                                    <div class="input-icon-wrapper">
+                                        <input type="text" id="firstname" name="firstname" placeholder="الاسم الأول" required>
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="lastname">الاسم الأخير</label>
+                                    <div class="input-icon-wrapper">
+                                        <input type="text" id="lastname" name="lastname" placeholder="الاسم الأخير" required>
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">البريد الإلكتروني</label>
+                                <div class="input-icon-wrapper">
+                                    <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">رقم الهاتف</label>
+                                <div class="input-icon-wrapper">
+                                    <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password">كلمة المرور</label>
+                                <div class="input-icon-wrapper">
+                                    <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required minlength="8">
+                                    <i class="fas fa-lock"></i>
+                                    <button type="button" class="toggle-password" aria-label="عرض/إخفاء كلمة المرور">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="strength-meter">
+                                        <div class="strength-bar"></div>
+                                    </div>
+                                    <div class="strength-text">قوة كلمة المرور</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirm-password">تأكيد كلمة المرور</label>
+                                <div class="input-icon-wrapper">
+                                    <input type="password" id="confirm-password" name="confirm-password" placeholder="أعد إدخال كلمة المرور" required>
+                                    <i class="fas fa-lock"></i>
+                                    <button type="button" class="toggle-password" aria-label="عرض/إخفاء كلمة المرور">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="terms-checkbox">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <label for="terms">أوافق على <a href="terms.html">الشروط والأحكام</a> و <a href="privacy.html">سياسة الخصوصية</a></label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">إنشاء حساب</button>
+                            
+                            <div class="auth-divider">
+                                <span>أو</span>
+                            </div>
+                            
+                            <div class="social-login">
+                                <button type="button" class="btn btn-social btn-google">
+                                    <i class="fab fa-google"></i> التسجيل عبر Google
+                                </button>
+                                <button type="button" class="btn btn-social btn-facebook">
+                                    <i class="fab fa-facebook-f"></i> التسجيل عبر Facebook
+                                </button>
+                            </div>
+                            
+                            <div class="auth-footer">
+                                لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="main-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="أسفار المغرب">
+                        <span>أسفار المغرب</span>
+                    </div>
+                    <p class="footer-description">نوفر لك أفضل خدمات الحجز للفنادق والطيران والقطارات في المغرب</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3 class="footer-title">روابط سريعة</h3>
+                        <ul>
+                            <li><a href="index.html">الرئيسية</a></li>

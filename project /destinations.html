@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar-MA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الوجهات - أسفار المغرب</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <header id="main-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="أسفار المغرب">
+                        <span>أسفار المغرب</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="hotels.html">الفنادق</a></li>
+                        <li><a href="flights.html">الطيران</a></li>
+                        <li><a href="trains.html">القطارات</a></li>
+                        <li><a href="destinations.html" class="active">الوجهات</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
+                    <a href="signup.html" class="btn btn-primary">إنشاء حساب</a>
+                    <button class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">اكتشف وجهات مغربية رائعة</h1>
+                    <p class="hero-description">اختر وجهتك التالية واستعد لتجربة لا تُنسى في قلب جمال المغرب</p>
+
+                    <!-- Search Form -->
+                    <div class="search-container">
+                        <form action="#" method="get" class="destination-search-form">
+                            <div class="form-group">
+                                <input type="text" placeholder="ابحث عن وجهة...">
+                            </div>
+                            <button type="submit" class="btn btn-search">بحث <i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destinations Grid -->
+        <section id="popular-destinations">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">أشهر الوجهات السياحية</h2>
+                    <p class="section-description">اكتشف أجمل المدن والطبيعة الخلابة في المغرب</p>
+                </div>
+                <div class="destinations-grid">
+                    <!-- Marrakech -->
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.pexels.com/photos/3254729/pexels-photo-3254729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="مراكش">
+                            <div class="destination-overlay">
+                                <div class="destination-price">ابتداءً من 1200 درهم</div>
+                            </div>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">مراكش</h3>
+                            <div class="destination-meta">
+                                <span class="destination-rating"><i class="fas fa-star"></i> 4.8</span>
+                                <span class="destination-type">المدينة الحمراء</span>
+                            </div>
+                            <p class="destination-description">استكشف سحر المدينة القديمة، ساحة جامع الفنا، وحدائق ماجوريل.</p>
+                            <a href="destinations/marrakech.html" class="btn btn-sm">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- Chefchaouen -->
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.pexels.com/photos/4871012/pexels-photo-4871012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="شفشاون">
+                            <div class="destination-overlay">
+                                <div class="destination-price">ابتداءً من 900 درهم</div>
+                            </div>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">شفشاون</h3>
+                            <div class="destination-meta">
+                                <span class="destination-rating"><i class="fas fa-star"></i> 4.7</span>
+                                <span class="destination-type">المدينة الزرقاء</span>
+                            </div>
+                            <p class="destination-description">اكتشف المدينة الزرقاء الخلابة بزقاقها الضيقة وتاريخها العريق.</p>
+                            <a href="destinations/chefchaouen.html" class="btn btn-sm">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- Sahara -->
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.pexels.com/photos/2583852/pexels-photo-2583852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="الصحراء">
+                            <div class="destination-overlay">
+                                <div class="destination-price">ابتداءً من 1500 درهم</div>
+                            </div>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">الصحراء الكبرى</h3>
+                            <div class="destination-meta">
+                                <span class="destination-rating"><i class="fas fa-star"></i> 4.9</span>
+                                <span class="destination-type">مغامرة صحراوية</span>
+                            </div>
+                            <p class="destination-description">عش تجربة فريدة في الصحراء مع رحلات الجمال والمبيت في المخيمات التقليدية.</p>
+                            <a href="destinations/sahara.html" class="btn btn-sm">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- Fes -->
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.pexels.com/photos/6039246/pexels-photo-6039246.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="فاس">
+                            <div class="destination-overlay">
+                                <div class="destination-price">ابتداءً من 1100 درهم</div>
+                            </div>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">فاس</h3>
+                            <div class="destination-meta">
+                                <span class="destination-rating"><i class="fas fa-star"></i> 4.6</span>
+                                <span class="destination-type">المدينة العتيقة</span>
+                            </div>
+                            <p class="destination-description">استكشف واحدة من أقدم المدن في العالم بمدينتها العتيقة وأسواقها التقليدية.</p>
+                            <a href="destinations/fes.html" class="btn btn-sm">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- Essaouira -->
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.pexels.com/photos/338392/pexels-photo-338392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="الدار البيضاء">
+                            <div class="destination-overlay">
+                                <div class="destination-price">ابتداءً من 1300 درهم</div>
+                            </div>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">الدار البيضاء</h3>
+                            <div class="destination-meta">
+                                <span class="destination-rating"><i class="fas fa-star"></i> 4.5</span>
+                                <span class="destination-type">عاصمة الساحل</span>
+                            </div>
+                            <p class="destination-description">مدينة عصرية مع شواطئ جميلة ومزيج فريد بين الحداثة والتقاليد.</p>
+                            <a href="destinations/casablanca.html" class="btn btn-sm">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- Tangier -->
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.pexels.com/photos/2607244/pexels-photo-2607244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="طنجة">
+                            <div class="destination-overlay">
+                                <div class="destination-price">ابتداءً من 1000 درهم</div>
+                            </div>
+                        </div>
+                        <div class="destination-content">
+                            <h3 class="destination-title">طنجة</h3>
+                            <div class="destination-meta">
+                                <span class="destination-rating"><i class="fas fa-star"></i> 4.4</span>
+                                <span class="destination-type">بوابة إفريقيا</span>
+                            </div>
+                            <p class="destination-description">استمتع بإطلالة البحر الأبيض المتوسط وثقافة متنوعة تجمع بين العربية والأمازيغية والأوروبية.</p>
+                            <a href="destinations/tangier.html" class="btn btn-sm">عرض التفاصيل</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="more-destinations">
+                    <button class="btn btn-outline">عرض المزيد من الوجهات</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section id="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">ابدأ بالتخطيط لرحلتك الآن</h2>
+                    <p class="cta-description">ابحث عن أفضل الفنادق والرحلات للوجهة التي اخترتها</p>
+                    <div class="cta-buttons">
+                        <a href="hotels.html" class="btn btn-primary">ابحث عن فندق</a>
+                        <a href="flights.html" class="btn btn-outline">ابحث عن رحلة طيران</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="main-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <img src="https://images.pexels.com/photos/13230775/pexels-photo-13230775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="أسفار المغرب">
+                        <span>أسفار المغرب</span>
+                    </div>
+                    <p class="footer-description">نوفر لك أفضل خدمات الحجز للفنادق والطيران والقطارات في المغرب</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3 class="footer-title">روابط سريعة</h3>
+                        <ul>
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="hotels.html">الفنادق</a></li>
+                            <li><a href="flights.html">الطيران</a></li>
+                            <li><a href="trains.html">القطارات</a></li>
+                            <li><a href="destinations.html">الوجهات</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 class="footer-title">المعلومات</h3>
+                        <ul>
+                            <li><a href="about.html">من نحن</a></li>
+                            <li><a href="contact.html">اتصل بنا</a></li>
+                            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                            <li><a href="terms.html">الشروط والأحكام</a></li>
+                            <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 class="footer-title">اتصل بنا</h3>
+                        <ul class="contact-info">
+                            <li><i class="fas fa-map-marker-alt"></i> شارع محمد الخامس، الرباط، المغرب</li>
+                            <li><i class="fas fa-phone"></i> +212 5XX-XXXXXX</li>
+                            <li><i class="fas fa-envelope"></i> info@morocco-travels.ma</li>
+                        </ul>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3 class="footer-title">النشرة الإخبارية</h3>
+                        <p>اشترك في نشرتنا الإخبارية للحصول على أحدث العروض والخصومات</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="البريد الإلكتروني" required>
+                            <button type="submit" class="btn btn-sm">اشتراك</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="copyright">© 2025 أسفار المغرب. جميع الحقوق محفوظة.</p>
+                    <div class="payment-methods">
+                        <span>طرق الدفع:</span>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
